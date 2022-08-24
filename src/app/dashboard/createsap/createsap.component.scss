@@ -1,0 +1,77 @@
+@import "../../../assets/scss/mixins";
+.discrip_wrip
+{
+    .discrip_titl
+    {
+        @include font-size(0.65);
+        @include font-weight(500);
+        opacity: 0.5;
+    }
+    .duscript_sub
+    {
+        @include font-size(1.2);
+        @include font-weight(900);
+        span{
+            @include font-size(0.70);
+            @include font-weight(500);
+            @include margin(0,0,0,7px);
+        }
+    }
+}
+.dashboard_wrop
+{
+    @include margin(10px,20px,10px,20px);
+}
+
+.exporting_icon
+{
+   
+    @include heightwidth(35px,initial);
+    @include margin(0,0,0,10px);
+    @include displaydiv(inherit);
+    cursor:  pointer;
+    img{
+        @include heightwidth(100%,initial);
+    }
+}
+
+
+// start
+.upload_sap
+{
+    background-color: #fff;
+    border:1px dashed  #ccc;
+    text-align:  center;
+    @include padding(30px,20px,50px,20px);
+    @include margin(15px,0,15px,0,);
+    h2{
+        @include padding(0,0,10px,0);
+        @include margin(-20px,0,0,0);
+    }
+    p{
+        @include font-size(0.75);
+    }
+}
+// end
+
+// s
+.upload_dis
+{
+    p{
+    @include font-size(0.80);
+    @include font-weight(400);
+    @include margin(14px,0,0,0);
+}
+.upload_view
+{
+    @include margin(10px,0,0,0);
+    @include padding(15px,15px,15px,15px);
+    @include displaydiv(flex);
+    @include font-size(0.80);
+    @include font-weight(500);
+    justify-content: space-between;
+    align-items: center;
+    background-color: #dfe7f4;
+}
+}
+// e

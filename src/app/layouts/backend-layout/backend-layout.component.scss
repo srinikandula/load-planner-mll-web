@@ -1,0 +1,18 @@
+@import "../../../assets/scss/mixins";
+
+
+.side_nav_wrap{
+    @include position(fixed);
+    @include heightwidth(199px,100vh);
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    z-index: 1;
+}
+.men-cont-wrap
+{
+    @include position(absolute);
+    width: calc(100% - 200px);
+    right: 0px;
+    min-height: 100vh;
+    padding-bottom: 50px;
+    box-sizing: border-box;
+}

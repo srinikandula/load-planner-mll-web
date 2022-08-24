@@ -1,0 +1,249 @@
+@import "../../../assets/scss/mixins";
+.discrip_wrip
+{
+    .discrip_titl
+    {
+        @include font-size(0.65);
+        @include font-weight(500);
+        opacity: 0.5;
+    }
+    .duscript_sub
+    {
+        @include font-size(1.2);
+        @include font-weight(900);
+        span{
+            @include font-size(0.70);
+            @include font-weight(500);
+            @include margin(0,0,0,7px);
+        }
+    }
+}
+.dashboard_wrop
+{
+    @include margin(10px,20px,10px,20px);
+}
+
+.exporting_icon
+{
+   
+    @include heightwidth(35px,initial);
+    @include margin(0,0,0,10px);
+    @include displaydiv(inherit);
+    cursor:  pointer;
+    img{
+        @include heightwidth(100%,initial);
+    }
+}
+
+// s
+.asp_view_data
+{
+    @include margin(15px,0,0,0);
+    .select_vins
+    {
+        overflow: auto;
+        .vins_lable
+        {
+            background-color: #e0e0e0;
+            @include border-radius-all(20px,20px,20px,20px);
+            @include padding(5px,10px,5px,10px);
+            @include margin(0,0,0,10px);
+            @include font-size(0.80);
+            @include font-weight(500);
+            min-width: 140px;
+            position: relative;
+            span{
+                background-color: #d5233b;
+    display: inline-grid;
+    padding: 5px;
+    border-radius: 20px;
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    cursor: pointer;
+            }
+        }
+
+    }
+    .total_count_vin
+    {
+        @include margin(15px,0,0,0);
+        .total_count_vin_card
+        {
+            
+            background-image: conic-gradient(from 40deg, #ffffff, #f3f3f4 );
+            @include border-radius-all(10px,10px,10px,10px);
+            @include padding(25px,20px,25px,20px);
+            @include heightwidth(150px,initial);
+            box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.06);
+            &.active_card
+            {
+                background-image: conic-gradient(from 40deg, #d6223a, #77202c );
+                .vin_count
+                {
+                    color: #fff;
+                }
+            }
+            .down_icon
+            {
+                background-color: #c32237;
+                @include displaydiv(inline-grid);
+                @include padding(10px,10px,10px,10px);
+                @include border-radius-all(5px,5px,5px,5px);
+                cursor: pointer;
+                img{@include heightwidth(20px,initial)}
+            }
+            .vin_count
+            {
+                @include margin(50px,0,0,0);
+                @include border-radius-all(4px,4px,4px,4px);
+                h2{
+                    @include font-size(2.4);
+                    @include font-weight(900);
+                }
+                p{
+                    @include font-size(0.90);
+                    @include font-weight(400);
+                }
+            }
+        }
+    }
+
+.view_count
+{
+    @include margin(15px,0,0,0);
+    .back_sap
+    {
+        span{
+            background-color: #707070;
+            @include displaydiv(inline-flex);
+            @include padding(8px,8px,8px,8px);
+            @include border-radius-all(4px,4px,4px,4px);
+            img{
+                width: 12px;
+            }
+        }
+        p{
+            @include font-size(0.80);
+            @include font-weight(500);
+            @include margin(0,0px,0,10px);
+        }
+    }
+    .sap_filter
+    {
+        .filter_box
+        {
+            
+            @include displaydiv(flex);
+            @include margin(initial,5px,initial,initial);
+            color: #353f4d;
+                align-items: center;
+            background-color: #ecedf6;
+            @include border-radius-all(4px,4px,4px,4px);
+            @include padding(1px,1px,1px,1px);
+            &.active_box
+            {
+                span{
+                    background-color: #d6223a;
+                    color: #fff;
+                    }
+            }
+            p{
+                @include font-size(0.75);
+                @include padding(4px,4px,4px,4px);
+                @include margin(initial,4px,initial,initial);
+                @include font-weight(600);
+            }
+            span{
+                background-color: #d8d9e2;
+                @include border-radius-all(4px,4px,4px,4px);
+                @include font-size(0.65);
+                @include font-weight(500);
+                @include padding(5px,5px,5px,5px);
+                @include displaydiv(flex);
+                align-items: center;
+            }
+        }
+    }
+}
+
+
+
+.view_cards_warp
+    {
+        @include margin(15px,-0.7rem,0,-0.7rem);
+        .view_cards_box
+        {
+           
+           @include heightwidth(33%,initial);
+           border-radius: 10px;
+          
+           box-sizing: border-box;
+           @include padding(0.7rem,0.7rem,0.7rem,0.7rem);
+           .cards_in_worp{
+               background-color: #fff;
+               border: solid 1px #eaeaea;
+               border-radius: 10px;
+               width: 100%;
+               @include padding(10px,10px,10px,10px);
+               .card_con_wrp
+               {
+                @include padding(10px,0px,10px,0px);
+                border-bottom: 1px solid #7070701f;
+                .card_item
+                {
+                    .card_icon
+                    {
+                        img{width: 20px;padding-right: 5px;}
+                    }
+                    .card_text
+                    {
+                        p{
+                            @include font-size(0.75);
+                            color: #353f4d7a;
+                            @include font-weight(500);
+                            @include padding(0,0,2px,0);
+                        }
+                        h3{
+                            @include font-size(0.75);
+                            color: #353f4d;
+                        }
+                    }
+                }
+               }
+               .card_footer
+               {
+                @include padding(14px,10px,4px,10px);
+                p{
+                    @include font-size(0.75);
+                    color: #353f4d7a;
+                    font-style: italic;
+                    @include font-weight(500);
+                    @include padding(0,0,2px,0);
+                }
+                h3{
+                    @include font-size(0.75);
+                    color: #d6223a;
+                }
+               }
+           }
+        }
+    }
+
+}
+// e
+
+
+@media screen and (min-width: 1600px) and (max-width: 1919.99px)
+{
+    .view_cards_box
+    {
+        @include heightwidth(25% !important,initial);
+    }
+}
+@media screen and (max-width: 1024px){
+    .view_cards_box
+    {
+        @include heightwidth(50% !important,initial);
+    }
+}

@@ -1,0 +1,88 @@
+@import "../../../assets/scss/mixins";
+
+.select_wh_worp
+{
+    @include heightwidth(initial,100vh);
+    @include padding(0,100px,0,100px);
+    // s
+    .backaction
+    {
+        @include font-size(1.4);
+        @include font-weight(500);
+        @include padding(10px,initial,10px,initial);
+        cursor: pointer;
+        img{
+            @include margin(initial,10px,initial,initial);
+        }
+    }
+    // e
+
+    // s
+    .wh_name_wrp
+    {
+        .wh_name_wrp{
+            @include font-size(4);
+            @include font-weight(600);
+            @include padding(10px,initial,10px,initial);
+            img{
+                @include heightwidth(70px,initial);
+                @include margin(initial,initial,initial,10px);
+            }
+        }
+        .wh_titile_wrp{
+            @include font-size(1.4);
+            @include font-weight(500);
+        }
+    }
+    // e
+    .wh_list_wrp
+    {
+        @include padding(40px,initial,10px,initial);
+        @include margin(20px,initial,initial,initial);
+        @include position(relative);
+        &::after{
+            filter: blur(60px);
+            z-index: 0;
+            position: absolute;
+            top: 0px;
+            left: -55px;
+            width: 90%;
+            height: 60vh;
+            content: "";
+            background-position: center;
+            background-image: url(../../../assets/images/login_screen.png);
+        }
+        // s
+        .wh_list_card
+        {
+            @include border-radius-all(10px,10px,0px,0px);
+            @include displaydiv(inline-block);
+            @include heightwidth(235px,initial);
+            @include margin(initial,10px,initial,10px);
+            @include position(relative);
+            z-index: 1;
+            .wh_list_card_inn
+            {
+                .wh_name_wrp{
+                    @include font-size(1.070);
+                    @include font-weight(500);
+                    @include padding(10px,5px,10px,5px);
+                    @include text-align(center);
+                }
+                .wh_img_wrp
+                {
+                    @include heightwidth(100%,200px);
+                }
+                .wh_bt_wrp
+                {
+                    @include text-align(center);
+                    button{
+                        @include border-radius-all(20px, 20px, 20px, 20px);
+                        @include margin(initial,initial,14px,initial);
+                    }
+                }
+            }
+        }
+        // e
+    }
+}

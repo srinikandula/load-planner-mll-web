@@ -1,0 +1,51 @@
+<div class="dashboard_wrop">  
+    <div  fxLayout="row" fxLayoutAlign="space-between center" >
+        <div  fxLayout="row">
+            <div class="text-50 discrip_wrip">
+                <div class="discrip_titl">Outbound</div>
+                <div class="duscript_sub">Upload SAP
+                    <!-- <span>ORDER PROCESS</span> -->
+                </div>
+            </div>
+            <div class="cust_input_toggle_group" style="margin-left: 10px;" >
+                <mat-button-toggle-group  #group="matButtonToggleGroup" [value]="selectedVal" (change)="onValChange(group.value)" >
+                    <mat-button-toggle  value="option1">
+                        Upload SAP
+                    </mat-button-toggle>
+                    <mat-button-toggle value="option2">
+                        All Uploaded SAP data
+                    </mat-button-toggle>
+                  </mat-button-toggle-group>
+            </div>
+           
+        </div>
+        
+        <div fxLayout="row" fxLayoutAlign="end center">
+          
+           
+        </div>
+    </div>
+    <div  fxLayout="column" fxLayoutAlign="space-between top" >
+      <div fxFlex="100">
+         <div class="upload_sap">
+            <img src="../../../assets/images/upload_icon.png" width="100px">
+            <h2>Upload SAP</h2>
+            <p>Drag & Drop or Click here to browse SAP data from your local device</p>
+         </div>
+      </div>
+      <div class="upload_dis" fxFlex="100">
+         <p>You are using the multi-file uploader. Problems? Try the browser uploader instead. No file chosen
+         </p>
+            <p>Maximum upload file size: 1,000 MB.</p>
+
+            <div class="upload_view">
+                <div>M&M Data file for MumbaiToDelhi Convoys.xlsx </div>
+                <div><img src="../../../assets/images/prog_bar.JPG"></div>
+            </div>
+      </div>
+      
+       
+          
+          
+    </div>
+    </div>

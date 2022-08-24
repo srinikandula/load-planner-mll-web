@@ -1,0 +1,21 @@
+<div class="header_wrp" fxLayout="row"  fxLayoutAlign="space-between center">
+    <div fxLayout="row" fxLayoutAlign=" center" fxFlex="100%" fxFlex.gt-sm="50%" >
+    <div class="con " [class.view_arrow]="arr_class" (click)="view_toggel()">
+        <div class="bar bg-400 arrow-top"></div>
+        <div class="bar bg-400 arrow-middle"></div>
+        <div class="bar bg-400 arrow-bottom"></div>
+      </div>
+      <div class="search_menu" fxLayout="row">
+          <input type="search" placeholder="Type any ware to search ">
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center" >
+        <div fxLayout="column" fxLayoutAlign="end center"  class="user_det_wrp">
+            <div class="user_det_name">Ashish kumar</div>
+            <div class="user_det_post">Super Admin</div>
+        </div>
+        <div class="user_wrp">
+            <img src="../../../assets/images/user.png" >
+        </div>
+    </div>
+</div>

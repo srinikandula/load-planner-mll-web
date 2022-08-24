@@ -1,0 +1,17 @@
+
+    <div *ngIf="view_head" class="bg-300" [class]="{'side_nav_wrap': view_head}" >
+        <app-side-nav  *ngIf="view_head"></app-side-nav>
+    </div>
+
+<div [class]="{'men-cont-wrap': view_head, 'bg-300': view_head}"  >
+    <app-backend-header *ngIf="view_head"></app-backend-header>
+
+    <router-outlet></router-outlet>
+
+<!-- <app-backend-footer *ngIf="view_head"></app-backend-footer> -->
+</div>
+
+
+
+
+
