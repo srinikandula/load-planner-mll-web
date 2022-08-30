@@ -1,0 +1,67 @@
+<div class="container-fluid login-content">
+  <div class="login">
+    <div class="col-sm-12">
+      <div class="row align-items-center" >
+        <div class="col-sm-7 text-center">
+          <app-coros-video [image]="image"></app-coros-video>
+        </div>
+        <div class="col-sm-5">
+          <form [formGroup]="signUpForm"  (ngSubmit)="userRegister()">
+            <div class="row">
+              <img class="LogiOpt_logo" src="../../../../assets/images/LogiOpt_logo.png">
+            </div>
+            <h5 class="login-heading mb-4">Sign up with your credentials for accessing  <span style="font-size: 17px;color: #D6223A;">LogiOpt</span></h5>
+            <div class="form-floating mb-3 col-md-6 col-sm-12">
+              <input type="name" class="form-control" id="floatingInput" placeholder="name"  formControlName="fullname">
+              <label for="floatingInput" class="placeholder-names">Enter your Full Name</label>
+              <span class="help-block" *ngIf="signUpForm.get('fullname')?.status && signUpForm.get('fullname')?.invalid">
+                <span class="errorMessage" *ngIf="signUpForm.get('fullname')?.touched">Name is Required</span>
+                <!--              <span *ngIf="loginForm.get('username')?.errors['required']">field is required</span>-->
+            </span>
+            </div>
+            <div class="form-floating mb-3 col-md-6 col-sm-12">
+              <input type="email" class="form-control placeholder-names" id="floatingEmail" placeholder="email Id" formControlName="emailId">
+              <span class="help-block" *ngIf="signUpForm.get('emailId')?.status && signUpForm.get('emailId')?.invalid">
+                <span class="errorMessage"  *ngIf="signUpForm.get('emailId')?.touched">Email is Required</span>
+                <!--              <span *ngIf="loginForm.get('username')?.errors['required']">field is required</span>-->
+            </span>
+              <label for="floatingEmail" class="placeholder-names">Enter your email id</label>
+            </div>
+            <div class="form-floating mb-3 col-md-6 col-sm-12">
+              <select class="form-select" id="floatingCompanyName" aria-label="Floating label select example" formControlName="companyName">
+                <option class="placeholder-names" selected>Select customers</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+              <span class="help-block" *ngIf="signUpForm.get('companyName')?.status && signUpForm.get('companyName')?.invalid">
+                <span class="errorMessage"  *ngIf="signUpForm.get('companyName')?.touched">companyName is Required</span>
+                <!--              <span *ngIf="loginForm.get('username')?.errors['required']">field is required</span>-->
+            </span>
+              <label for="floatingCompanyName">Company Name</label>
+            </div>
+            <div class="form-floating mb-3 col-md-6 col-sm-12">
+              <select class="form-select" id="floatingCustomers" aria-label="Floating label select example" formControlName="customer">
+                <option class="placeholder-names" selected>Select customers</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+              <span class="help-block" *ngIf="signUpForm.get('customer')?.status && signUpForm.get('customer')?.invalid">
+                <span class="errorMessage"  *ngIf="signUpForm.get('customer')?.touched">customer is Required</span>
+                <!--              <span *ngIf="loginForm.get('username')?.errors['required']">field is required</span>-->
+            </span>
+              <label for="floatingCustomers">Customers</label>
+            </div>
+            <div class="mb-3 mt-5 col-md-6">
+              <button class="btn login-btn">Sign Up</button>
+            </div>
+            <div class="col-md-6 text-end already-account">
+              <a> Already have a account,</a><a [routerLink]="['/logIn']">Login</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
