@@ -298,3 +298,33 @@ a {
 .form-floating > label {
   transition: opacity 0.1s ease-in-out, transform 0.5s ease-in-out;
 }
+
+.body-right{
+  display: flex;
+  list-style: none;
+/* padding: 0; */
+  margin: 0;
+}
+
+.body-right li {
+  padding: 0 19px 0 0;
+}
+.planner-active-tabs{
+  background-color: #D6223A !important;
+  color: #FFFFFF !important;
+ }
+
+.upload-file-tile {
+  position: relative;
+  background: #FFFEFF;
+  padding: 180px;
+  /*-webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);*/
+  -webkit-box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+  /*box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);*/
+  box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+  margin-bottom: 30px;
+  margin-top: 50px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}

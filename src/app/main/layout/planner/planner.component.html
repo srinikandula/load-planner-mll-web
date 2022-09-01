@@ -6,22 +6,37 @@
         </div>
         <div class="col-sm-4">
           <div style="display: inline-flex; vertical-align: middle; background-color: #ffffff; padding: 8px 8px; border-radius: 4px">
-            <button class="btn">Upload</button>
-            <button class="btn">Order Data</button>
-            <button class="btn">Planned Trips</button>
-            <button class="btn">Unplanned Trips</button>
+            <button class="btn" (click)="changeTab(1)" [ngClass]="{'planner-active-tabs':tab==1}">Upload</button>
+            <button class="btn" (click)="changeTab(2)" [ngClass]="{'planner-active-tabs':tab==2}">Order Data</button>
+            <button class="btn" (click)="changeTab(3)" [ngClass]="{'planner-active-tabs':tab==3}">Planned Trips</button>
+            <button class="btn" (click)="changeTab(4)" [ngClass]="{'planner-active-tabs':tab==4}">Unplanned Trips</button>
           </div>
         </div>
-        <div class="col-sm-2"></div>
-        <div class="col-sm-2" style="background-color: #FFFFFF">
-          <input class="app-search__input" type="search" placeholder="Search"/>
-        </div>
-        <div class="col-sm-2" style="background-color: #FFFFFF">
-          <input class="app-search__input" type="search" placeholder="Search"/>
-          <img  src="../../../../assets/images/search-normal.png">
-        </div>
-        <div class="col-sm-1">
-          <img  src="../../../../assets/images/Icon%20awesome-filter.png" class="icon-awesome-filter">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-6 row">
+          <ul class="body-right">
+            <li>
+                <div style="display: inline-flex; vertical-align: middle; background-color: #ffffff; padding: 8px 8px; border-radius: 4px">
+                  <input class="app-search__input" type="search" placeholder="Search"/>
+                </div>
+            </li>
+            <li>
+                <div style="display: inline-flex; vertical-align: middle; background-color: #ffffff; padding: 8px 8px; border-radius: 4px">
+                  <input class="app-search__input" type="search" placeholder="Search"/>
+                  <img  src="../../../../assets/images/search-normal.png">
+                </div>
+            </li>
+            <li>
+              <div style="display: inline-flex; vertical-align: middle; padding: 1px 6px 0px 6px;">
+                  <img  src="../../../../assets/images/Icon%20awesome-filter.png" class="icon-awesome-filter">
+              </div>
+            </li>
+            <li>
+              <button class="btn btn-sm" style="background-color: #D6223A;border: 1px solid #D6223A; border-radius: 10px;width: 177px;height: 43px;letter-spacing: 0px;color: #FFFFFF;text-transform: capitalize;" (click)="downloadTemplate()">
+                    Download Template
+              </button>
+            </li>
+          </ul>
         </div>
       </div>
       <div class="row">
@@ -41,6 +56,6 @@
           <app-unplanned-trips [tab]="tab"></app-unplanned-trips>
         </div>
       </div>
-    </div>
+</div>
 
 

@@ -14,6 +14,11 @@ export class ApiServiceService {
     return this._httpClient.post(this._apiUrls.mainUrl+subUrl, data);
   }
 
+  get(subUrl: any) {
+    return this._httpClient.get(this._apiUrls.mainUrl + subUrl);
+  }
+
+
   create(subUrl: any, data: any) {
     return this._httpClient.post(this._apiUrls.mainUrl + subUrl, data).pipe(map((res: any) => {
       return res;
