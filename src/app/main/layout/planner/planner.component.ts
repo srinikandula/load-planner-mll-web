@@ -1,4 +1,10 @@
 import {Component, OnInit} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {ApiUrls} from "../../../schemas/apiUrls";
+import {AuthenticationService} from "../../../services/authentication.service";
+import {FormBuilder} from "@angular/forms";
+import {ActivatedRoute, Router} from "@angular/router";
+import {ApiServiceService} from "../../../services/api-service.service";
 
 @Component({
   selector: 'app-planner',
@@ -13,7 +19,13 @@ export class PlannerComponent implements OnInit {
   public plannedTripsComponent: boolean;
   public unPlannedTripsComponent: boolean;
 
-  constructor() {
+  constructor(private _httpClient: HttpClient,
+              public _apiUrls: ApiUrls,
+              private _authenticationService: AuthenticationService,
+              private fb: FormBuilder,
+              private route: ActivatedRoute,
+              private router: Router,
+              private _apiService: ApiServiceService) {
   }
 
   ngOnInit(): void {
@@ -46,6 +58,11 @@ export class PlannerComponent implements OnInit {
         this.plannedTripsComponent = false;
         this.unPlannedTripsComponent = true;
     }
+  }
+
+  downloadTemplate(): void{
+    this._apiService.get(this._apiUrls.downloadTemplate).subscribe((res: any) => {
+    });
   }
 
 }

@@ -12,5 +12,6 @@ export class ApiUrls {
 
 
   userRegistration = 'api/v1/users/register';
+  downloadTemplate = 'api/v1/orders/template';
 
 }

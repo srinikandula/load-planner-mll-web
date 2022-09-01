@@ -18,7 +18,7 @@ const routes: Routes = [
   // { path: 'backend', component: BackendLayoutComponent, children: BACKEND_LAYOUT },
   {path: 'logIn', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
-  { path: '**', redirectTo: '404' }
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
