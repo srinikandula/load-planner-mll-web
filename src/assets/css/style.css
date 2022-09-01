@@ -1,0 +1,132 @@
+@import '~font-awesome/css/font-awesome.css';
+@import '~bootstrap/dist/css/bootstrap.css';
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+
+html, body{
+  height: 100%;
+  font-family:  "Helvetica Neue", sans-serif !important;
+}
+
+.login-content{
+  background-color: #E5E7ED;
+}
+
+.layout_screen{
+  background-color: #F3F3F4;
+  height: 100%;
+}
+
+.login-content{
+  background: #E5E7ED 0% 0% no-repeat padding-box;
+  height: 100%;
+  width: 100%;
+  display: table;
+}
+
+.login-heading{
+  color: #000000;
+  font-size: 17px;
+  line-spacing: 24;
+}
+
+.LogiOpt_logo{
+  width: 204px;
+  height: 66px;
+  margin-left: -15px
+}
+
+.placeholder-names{
+  font-size: 16px;
+}
+
+.already-account{
+  font-size: 14px;
+  color: #3062D0;
+  font-weight: bold;
+}
+.login{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.login-btn{
+  width: 100%;
+  background: #D6223A;
+  color: #FFFFFF;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.login-btn:hover{
+  background: #D6223A;
+  color: #ffffff;
+}
+.login-btn:focus{
+  background: #D6223A;
+  color: #ffffff;
+}
+.signup-btn{
+  background: #D6223A;
+  font-size: 14px;
+  color: #FFFFFF;
+  border: 1px solid #EAEAEA;
+  border-radius: 8px;
+  padding: 7px 35px;
+  font-weight: bold;
+}
+.signup-btn:hover{
+  background: #D6223A;
+  color: #fff;
+}
+
+.signup-btn:focus{
+  background: #D6223A;
+  color: #fff;
+}
+
+.signup-btn:active{
+  background: #D6223A;
+  color: #fff;
+}
+
+input[type="checkbox"]:checked{
+  border-color: #CA1B2E;
+  background-color: #CA1B2E;
+  border-radius: 2px;
+}
+
+.errorMessage{
+  color: red;
+}
+
+input.ng-invalid.ng-touched{
+  border: 1px solid red;
+}
+
+.app-search__input {
+  border: 0;
+  padding: 5px 10px;
+  padding-right: 30px;
+  border-radius: 2px;
+  font-size: 14px;
+  color: #97999B;
+  -webkit-transition: background-color 0.3s ease;
+  -o-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  background: none;
+}
+
+
+.app-search__input:focus-visible, .app-search__input:active{
+  border: 0;
+}
+
+
+
+
