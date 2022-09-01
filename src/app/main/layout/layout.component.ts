@@ -15,14 +15,15 @@ export class LayoutComponent implements OnInit {
     (($) => {
       // () => {
 
-      const showNavbar = (toggleId: any, navId: any, bodyId: any, headerId: any) => {
+      const showNavbar = (toggleId: any, navId: any, bodyId: any, headerId: any, containerCusId: any) => {
         const toggle = document.getElementById(toggleId),
           nav = document.getElementById(navId),
           bodypd = document.getElementById(bodyId),
-          headerpd = document.getElementById(headerId)
+          headerpd = document.getElementById(headerId),
+          containerpd = document.getElementById(containerCusId)
 
         // Validate that all variables exist
-        if(toggle && nav && bodypd && headerpd){
+        if(toggle && nav && bodypd && headerpd && containerpd){
         // if(toggle && nav && headerpd){
           toggle.addEventListener('click', ()=>{
             // show navbar
@@ -33,10 +34,11 @@ export class LayoutComponent implements OnInit {
             bodypd.classList.toggle('body-pd')
             // add padding to header
             headerpd.classList.toggle('body-pd-head')
+            containerpd.classList.toggle('container-cus-show')
           })
         }
       }
-      showNavbar('header-toggle','nav-bar','body-pd','header')
+      showNavbar('header-toggle','nav-bar','body-pd','header', 'containerCus')
 
       /*===== LINK ACTIVE =====*/
       const linkColor = document.querySelectorAll('.nav_link')

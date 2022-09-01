@@ -1,4 +1,3 @@
-
 <!--<div class="bg-100 login_warp"  fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center none" fxFlex="100%" fxFlex.gt-sm="100%"  >-->
 
 <!--    &lt;!&ndash; <div  fxLayout="column" fxFlex="55%" fxLayoutAlign="end"  fxHide.sm fxHide.xs>-->
@@ -85,35 +84,40 @@
   <div class="container-fluid login-content">
     <div class="login">
       <div class="col-sm-12">
-        <div class="row align-items-center" >
+        <div class="row align-items-center">
           <div class="col-sm-7 text-center">
             <app-coros-video [image]="image"></app-coros-video>
           </div>
           <div class="col-sm-5">
-            <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
               <div class="row LogiOpt_logo">
                 <img class="LogiOpt_logo" src="../../../../assets/images/LogiOpt_logo.png">
               </div>
-              <h5 class="login-heading mb-4 col-md-12 col-sm-12 col-lg-12">Login with your credentials for accessing <span style="font-size: 17px;color: #D6223A;">LogiOpt</span></h5>
+              <h5 class="login-heading mb-4 col-md-12 col-sm-12 col-lg-12">Login with your credentials for accessing
+                <span style="font-size: 17px;color: #D6223A;">LogiOpt</span></h5>
               <div class="form-floating mb-3 col-md-6 col-sm-12 ">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"  formControlName="username">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                       formControlName="username">
 
-                <span class="help-block" *ngIf="loginForm.get('username')?.status && loginForm.get('username')?.invalid">
+                <span class="help-block"
+                      *ngIf="loginForm.get('username')?.status && loginForm.get('username')?.invalid">
                 <span class="errorMessage" *ngIf="loginForm.get('username')?.touched">Name is invalid</span>
                   <!--              <span *ngIf="loginForm.get('username')?.errors['required']">field is required</span>-->
             </span>
                 <!--              <span class="help-b/lock">{{getErrorM/essage('username')}}</span>-->
-                <label for="floatingInput"  class="placeholder-names">Enter your token number/ User name</label>
+                <label for="floatingInput" class="placeholder-names">Enter your token number/ User name</label>
               </div>
               <div class="form-floating mb-3 col-md-6 col-sm-12">
-                <input type="password" class="form-control password" id="floatingPassword" placeholder="password" formControlName="password">
-                <span class="help-block" *ngIf="loginForm.get('password')?.status && loginForm.get('password')?.invalid">
+                <input type="password" class="form-control password" id="floatingPassword" placeholder="password"
+                       formControlName="password">
+                <span class="help-block"
+                      *ngIf="loginForm.get('password')?.status && loginForm.get('password')?.invalid">
                  <span class="errorMessage" *ngIf="loginForm.get('password')?.touched">Password Required</span>
               </span>
                 <!--              <span class="help-b/lock">{{getErrorMessage('password')}}</span>-->
-                <label for="floatingPassword"  class="placeholder-names">Enter your password</label>
+                <label for="floatingPassword" class="placeholder-names">Enter your password</label>
               </div>
-              <div class="mb-6 col-md-6 col-sm-12" style="display: flex;justify-content: space-between" role="group" >
+              <div class="mb-6 col-md-6 col-sm-12" style="display: flex;justify-content: space-between" role="group">
                 <div>
                   <img src="../../../../assets/images/Icon%20awesome-check-square.png"> &nbsp;
                   <span style="font-size: 14px">Remember me</span>
@@ -128,8 +132,10 @@
                 </button>
               </div>
               <div class="col-md-6 col-sm-12" style="text-align: end; margin: 40px 0px">
-                <label class="col-form-label" style="color: #0C0B1B;font-size: 12px;">Don’t have an account, get Sign Up</label>
-                <button type="submit" class="btn signup-btn" style="margin-left: 30px" (click)="signup()">Sign Up</button>
+                <label class="col-form-label" style="color: #0C0B1B;font-size: 12px;">Don’t have an account, get Sign
+                  Up</label>
+                <button type="submit" class="btn signup-btn" style="margin-left: 30px" (click)="signup()">Sign Up
+                </button>
               </div>
             </form>
           </div>

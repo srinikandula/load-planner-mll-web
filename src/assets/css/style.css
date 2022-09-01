@@ -127,6 +127,10 @@ input.ng-invalid.ng-touched{
   border: 0;
 }
 
+@media (max-width: 320px) {
+
+}
+
 
 
 
