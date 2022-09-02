@@ -1,11 +1,20 @@
 <header class="header body-pd-head" id="header">
   <div class="header_toggle">
-    <i class='bx bx-menu' id="header-toggle"></i>
+<!--    <i class='bx bx-menu' id="header-toggle"></i>-->
 <!--    <i class='bx bx-x' id="header-toggle"></i>-->
-<!--    bx bx-menu bx-x-->
-    <div class="header_toggle1">
-      <img  src="../../../../assets/images/search-normal.png">
-      <input class="app-search__input" type="search" placeholder="Type any ware to search">
+    <i class="svgMenuIcon svgIconSize" id="header-toggle"></i>
+<!--    <div class="header_toggle1">-->
+<!--      <img  src="../../../../assets/images/search-normal.png">-->
+<!--      <input class="app-search__input" type="search" placeholder="Type any ware to search">-->
+<!--    </div>-->
+    <div class="input-group header_toggle1">
+      <div class="input-group-prepend">
+        <button id="button-addon4" type="button" class="btn btn-sm btn-link text-info">
+          <img  src="../../../../assets/images/search-normal.png">
+        </button>
+      </div>
+      <input id="globalSearch" type="search" aria-describedby="button-addon4" class="form-control form-control-sm border-0 hide-clear">
+      <div class="globalSearchPlaceholder">Type any ware to <b>search</b></div>
     </div>
   </div>
   <ul class="head-nav2">
@@ -16,7 +25,7 @@
       <div class="header_user_details">
         <div class="header_user_name_details">
           <b class="header_user_name">Ashish kumar</b>
-          <small class="header_user_name">Super Admin</small>
+          <small class="header_user_role">Super Admin</small>
         </div>
         <div class="header_img" (click)="logOutUser()"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
       </div>
@@ -31,18 +40,25 @@
       </a>
       <div class="nav_list">
         <a href="#" class="nav_link active" [routerLink]="['planner']">
-          <img src="./assets/images/Dashboard%20Bold.png">
+<!--          <img src="./assets/images/Dashboard%20Bold.png">-->
+          <i class="svgMenuIconSize svgDashboardIcon svgMenuActiveIcon"></i>
           <span class="nav_name">Planner</span>
         </a>
         <a href="#" class="nav_link">
-          <img src="./assets/images/setting.png">
+<!--          <img src="./assets/images/setting.png">-->
+          <i class="svgMenuIconSize svgSettingIcon svgMenuActiveIcon"></i>
           <span class="nav_name">Configuration</span>
         </a>
         <a href="#" class="nav_link">
-          <img src="./assets/images/profile.png">
+<!--          <img src="./assets/images/profile.png">-->
+          <i class="svgMenuIconSize svgProfileIcon svgMenuActiveIcon"></i>
           <span class="nav_name">Masters</span>
         </a>
       </div>
+    </div>
+    <div class="side-nav-footer">
+      <div class="side-nav-footer-head">© Mahindra-Logistics</div>
+      <div class="side-nav-footer-footer"><i>All rights reserved.</i></div>
     </div>
   </nav>
 </div>
