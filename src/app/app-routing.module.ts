@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {AuthGuard} from "./_helpers/auth.guard";
 import {LoginComponent} from "./main/auth/login/login.component";
 import {SignupComponent} from "./main/auth/signup/signup.component";
+import {SecureGuard} from "./_helpers/secure.guard";
 
 const routes: Routes = [
   {
@@ -16,9 +17,19 @@ const routes: Routes = [
   },
   // { path: '', component: DefaultLayoutComponent, children: DEFAULT_ROUTES },
   // { path: 'backend', component: BackendLayoutComponent, children: BACKEND_LAYOUT },
-  {path: 'logIn', component: LoginComponent},
-  {path: 'signup', component: SignupComponent},
-  { path: '**', redirectTo: '' }
+  {
+    path: 'logIn',
+    canActivate: [SecureGuard],
+    component: LoginComponent},
+  {
+    path: 'signup',
+    canActivate: [SecureGuard],
+    component: SignupComponent},
+  {
+    path: '**',
+    // canActivate: [SecureGuard],
+    redirectTo: ''
+  }
 ];
 
 @NgModule({
