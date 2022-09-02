@@ -29,6 +29,7 @@ export class PlannerComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.changeTab(1);
   }
 
   changeTab(tabKey: number): void {
@@ -60,9 +61,19 @@ export class PlannerComponent implements OnInit {
     }
   }
 
-  downloadTemplate(): void{
-    this._apiService.get(this._apiUrls.downloadTemplate).subscribe((res: any) => {
-    });
-  }
+  // downloadTemplate(): void{
+  //   this._apiService.get(this._apiUrls.downloadTemplate).subscribe((res: any) => {
+  //   });
+  // }
+
+
+ downloadTemplate() {
+  this._apiService.downloadTemplateFile().subscribe((res: any) => {
+  console.log(res)
+  if (res && !res.error) {
+  window.location.href = res.file;
+}
+})
+}
 
 }
