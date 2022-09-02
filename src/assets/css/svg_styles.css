@@ -4,3 +4,52 @@
   -webkit-mask-size: cover;
   mask-size: cover;
 }
+
+.svgIconSize {
+  width: 24px;
+  height: 14px;
+  display: inline-block;
+  background-color: #4e4949;
+}
+
+.svgMenuIcon {
+  -webkit-mask: url('../images/svg_icons/Group 2633.svg') no-repeat 50% 50%;
+  mask: url('../images/svg_icons/Group 2633.svg') no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+
+.svgMenuIconSize {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+}
+
+.svgDashboardIcon {
+  -webkit-mask: url('../images/svg_icons/Dashboard Bold.svg') no-repeat 50% 50%;
+  mask: url('../images/svg_icons/Dashboard Bold.svg') no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+
+.svgSettingIcon {
+  -webkit-mask: url('../images/svg_icons/setting.svg') no-repeat 50% 50%;
+  mask: url('../images/svg_icons/setting.svg') no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+
+.svgProfileIcon {
+  -webkit-mask: url('../images/svg_icons/profile.svg') no-repeat 50% 50%;
+  mask: url('../images/svg_icons/profile.svg') no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+
+.nav_link .svgMenuActiveIcon {
+  background-color: #657785;
+}
+
+.nav_link.active .svgMenuActiveIcon {
+  background-color: #D6223A !important;
+}

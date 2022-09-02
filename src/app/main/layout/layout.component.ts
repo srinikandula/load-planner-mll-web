@@ -36,7 +36,7 @@ export class LayoutComponent implements OnInit {
             // show navbar
             nav.classList.toggle('show')
             // change icon
-            toggle.classList.toggle('bx-x')
+            // toggle.classList.toggle('bx-x')
             // add padding to body
             bodypd.classList.toggle('body-pd')
             // add padding to header
@@ -52,7 +52,9 @@ export class LayoutComponent implements OnInit {
 
       function colorLink(){
         if(linkColor){
-          linkColor.forEach(l=> l.classList.remove('active'))
+          linkColor.forEach(l => {
+            l.classList.remove('active')
+          })
           // @ts-ignore
           this.classList.add('active')
         }
@@ -61,6 +63,20 @@ export class LayoutComponent implements OnInit {
 
       // Your code to run since DOM is loaded and ready
       // }
+      $("#globalSearch").keyup(function() {
+        // @ts-ignore
+        if ($(this).val().length) {
+          // @ts-ignore
+          $(this).next('.globalSearchPlaceholder').hide();
+        } else {
+          // @ts-ignore
+          $(this).next('.globalSearchPlaceholder').show();
+        }
+      });
+      $(".globalSearchPlaceholder").click(function() {
+        // @ts-ignore
+        $(this).prev().focus();
+      });
 
     })(jQuery)
   }
