@@ -5,7 +5,8 @@ import {ApiUrls} from "../../../schemas/apiUrls";
 import {AuthenticationService} from "../../../services/authentication.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import Swal from "sweetalert2";
-import {first} from "rxjs/operators";
+import {first, map, share} from "rxjs/operators";
+import {Subscription, timer} from "rxjs";
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,8 @@ export class LoginComponent implements OnInit {
   loginForm:FormGroup;
   image: any;
   returnUrl = '';
+  subscription: Subscription;
+  setClockTime = new Date();
   get f() {
     return this.loginForm.controls;
   }
@@ -30,11 +33,21 @@ export class LoginComponent implements OnInit {
     });
     console.log('45', this.loginForm );
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/'
+
+    this.subscription = timer(0, 1000)
+      .pipe(
+        map(() => new Date()),
+        share()
+      )
+      .subscribe(time => {
+        this.setClockTime = time;
+      });
   }
 
 
   onSubmit(): void{
     this._authenticationService.logIn(this.f.username.value, this.f.password.value).subscribe( (data: any) => {
+      this.router.navigate([this.returnUrl]);
       const Toast = Swal.mixin({
         toast: true,
         position: 'bottom-end',
@@ -47,7 +60,6 @@ export class LoginComponent implements OnInit {
         }
       });
       Toast.fire({icon: 'success', title: 'Login in successfully'});
-      this.router.navigate(['']);
     });
   }
 

@@ -37,4 +37,10 @@ export class AuthenticationService {
       return res;
     }));
   }
+
+  logOut(): any {
+    // @ts-ignore
+    localStorage.clear('currentUser');
+    this.currentUserSubject.next(null);
+  }
 }

@@ -11,7 +11,7 @@ import {SignupComponent} from "./main/auth/signup/signup.component";
 const routes: Routes = [
   {
     path: '',
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     loadChildren: () => import('./main/layout/layout.module').then(m => m.LayoutModule)
   },
   // { path: '', component: DefaultLayoutComponent, children: DEFAULT_ROUTES },

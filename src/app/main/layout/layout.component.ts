@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthenticationService} from "../../services/authentication.service";
+import {Router} from "@angular/router";
 
 declare var jQuery: any
 
@@ -8,8 +10,13 @@ declare var jQuery: any
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
+  currentUser: any = {}
 
-  constructor() { }
+  constructor(private authenticationService: AuthenticationService, private router: Router) {
+    this.authenticationService.currentUser.subscribe(x => {
+      this.currentUser = x;
+    });
+  }
 
   ngOnInit(): void {
     (($) => {
@@ -56,5 +63,11 @@ export class LayoutComponent implements OnInit {
       // }
 
     })(jQuery)
+  }
+
+  logOutUser(): void {
+    this.authenticationService.logOut();
+    window.location.reload();
+    this.router.navigate(['/logIn']);
   }
 }
