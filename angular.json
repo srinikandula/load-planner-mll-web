@@ -39,7 +39,8 @@
               "node_modules/font-awesome/css/font-awesome.css",
               "node_modules/boxicons/css/boxicons.min.css",
               "src/assets/css/style.css",
-              "src/assets/css/style_set.css"
+              "src/assets/css/style_set.css",
+              "src/assets/css/svg_styles.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js"
@@ -114,7 +115,8 @@
               "node_modules/font-awesome/css/font-awesome.css",
               "node_modules/boxicons/css/boxicons.min.css",
               "src/assets/css/style.css",
-              "src/assets/css/style_set.css"
+              "src/assets/css/style_set.css",
+              "src/assets/css/svg_styles.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js"

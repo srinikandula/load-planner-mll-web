@@ -1,5 +1,22 @@
-<div class="upload-file-tile">
- <div class="tile-body">
-
+<div class="tile">
+  <h2 style="margin:40px 25px 30px 25px;font-size: 22px"><b>Upload LP Input File</b></h2>
+ <div class="tile-body text-center">
+   <div class="upload-file-icon" name="uploadfile" ngfSelect accept=".csv" [(files)]="xlsxFile" (filesChange)="uploadFile(xlsxFile)">
+<!--   <div class="upload-file-icon">-->
+<!--     <form action="/uploadExcelFile" enctype="multipart/form-data" method="post">-->
+<!--       <input type="file" name="uploadfile" accept='.csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel'>-->
+<!--       <input type="submit" class="p-10 w-100" value="UploadExcel">-->
+<!--     </form>-->
+     <i class="svgIconUpLoadFileDetails" style="background-color: black; height: 66px; width: 54px;display: inline-block;"> </i>
+     <h2 style="color: #000000;font-size: 30px"><b>Upload LPIF</b></h2>
+     <div style="font-size: 14px">Drag & Drop or <span style="color: #D6223A">Click here </span>to browse SAP data from your local device</div>
+   </div>
  </div>
+  <small style="margin: 0px 25px; font-size: 14px">Upload single file at a time.</small>
+    <div class="text-end" style="margin: 30px 25px 8px 25px">
+      <button class="btn" style="color: #D6223A">CANCEL</button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button class="btn btn-sm" style="background-color: #D6223A;border: 1px solid #D6223A;width: 135px;height: 50px;letter-spacing: 0px;color: #FFFFFF;font-size:14px;text-transform: capitalize;">
+        CONFIRM
+      </button>
+    </div>
 </div>

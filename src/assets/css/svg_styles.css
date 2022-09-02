@@ -1,0 +1,6 @@
+.svgIconUpLoadFileDetails {
+  -webkit-mask: url('../images/svg_icons/Group 9780.svg') no-repeat 50% 50%;
+  mask: url('../images/svg_icons/Group 9780.svg') no-repeat 50% 50%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}

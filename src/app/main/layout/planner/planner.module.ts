@@ -7,6 +7,7 @@ import { UploadFileComponent } from './upload-file/upload-file.component';
 import { OrderDataComponent } from './order-data/order-data.component';
 import { PlannedTripsComponent } from './planned-trips/planned-trips.component';
 import { UnplannedTripsComponent } from './unplanned-trips/unplanned-trips.component';
+import { ngfModule, ngf } from "angular-file"
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { UnplannedTripsComponent } from './unplanned-trips/unplanned-trips.compo
   ],
   imports: [
     CommonModule,
-    PlannerRoutingModule
+    PlannerRoutingModule,
+    ngfModule
   ]
 })
 export class PlannerModule { }
