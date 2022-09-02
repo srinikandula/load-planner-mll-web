@@ -1,5 +1,37 @@
-<div class="tile">
-  <div class="tile-body">
-   <h2>Order Data</h2>
+<div style="margin-top: 24px;margin-bottom: 12px;color: #818182;font-size: 14px;font-weight: 900">Uploaded Data</div>
+<div class="order-data-tile">
+  <div class="fixTableHead">
+    <table class="table caption-top table-hover-sticky">
+      <thead>
+      <tr>
+        <th scope="col" style="padding: 20px">
+          <img src="./assets/images/Checkbox.png">
+        </th>
+        <th scope="col" style="padding: 20px;color: #272D3B;text-transform: capitalize;">consignment Number</th>
+        <th scope="col" style="padding: 20px;color: #272D3B;text-transform: capitalize;">consigner City</th>
+        <th scope="col" style="padding: 20px;color: #272D3B;text-transform: capitalize;">Consigner State</th>
+        <th scope="col" style="padding: 20px;color: #272D3B;text-transform: capitalize;">Consignee City</th>
+        <th scope="col" style="padding: 20px;color: #272D3B;text-transform: capitalize;">Consignee State</th>
+        <th scope="col" style="padding: 20px;color: #272D3B;text-transform: capitalize;">volume CF</th>
+        <th scope="col" style="padding: 20px;color: #272D3B;text-transform: capitalize;">Weight</th>
+        <th scope="col" style="padding: 20px;color: #272D3B;text-transform: capitalize;">Order Date</th>
+        <th scope="col" style="padding: 20px;color: #272D3B;text-transform: capitalize;">Volumetric Weight</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let orders of allOrdersList; let i =index;">
+        <td style="padding: 20px;"><img src="./assets/images/Checkbox.png"></td>
+        <td style="padding: 20px;">{{(orderData.page - 1) * orderData.size + i + 1}}</td>
+        <td style="padding: 20px;">{{orders.consignorCity || 'NA'}}</td>
+        <td style="padding: 20px">{{orders.consigneeState || 'NA'}}</td>
+        <td style="padding: 20px">{{orders.consigneeCity || 'NA'}}</td>
+        <td style="padding: 20px">{{orders.consigneeState || 'NA'}}</td>
+        <td style="padding: 20px">{{orders.volumeCft || 'NA'}}</td>
+        <td style="padding: 20px">{{orders.weight || 'NA'}}</td>
+        <td style="padding: 20px">{{orders || 'NA'}}</td>
+        <td style="padding: 20px">{{orders || 'NA'}}</td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </div>
