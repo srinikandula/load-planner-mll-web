@@ -23,7 +23,11 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
   constructor(private _httpClient: HttpClient, public _apiUrls: ApiUrls, private _authenticationService: AuthenticationService, private fb: FormBuilder,private route: ActivatedRoute,
-              private router: Router,) { }
+              private router: Router,) {
+    // if (this._authenticationService.currentUserValue) {
+    //   this.router.navigate(['/']);
+    // }
+  }
 
 
   ngOnInit(): void {
