@@ -1,4 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {ApiUrls} from "../../../../schemas/apiUrls";
+import {AuthenticationService} from "../../../../services/authentication.service";
+import {FormBuilder} from "@angular/forms";
+import {ActivatedRoute, Router} from "@angular/router";
+import {ApiServiceService} from "../../../../services/api-service.service";
 
 @Component({
   selector: 'app-order-data',
@@ -7,9 +13,32 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class OrderDataComponent implements OnInit {
   @Input() tab: any;
-  constructor() { }
+  public allOrdersList: Array<any> = [];
+  public orderData: any = {
+    page: 1,
+    size: 10,
+    count: 0,
+    pageSizes: [],
+  };
+  constructor(private _httpClient: HttpClient,
+              public _apiUrls: ApiUrls,
+              private _authenticationService: AuthenticationService,
+              private fb: FormBuilder,
+              private route: ActivatedRoute,
+              private router: Router,
+              private _apiService: ApiServiceService) { }
 
   ngOnInit(): void {
+    this.getAllOrders();
+  }
+
+  getAllOrders(): void{
+    this._apiService.get(this._apiUrls.getAllOrders).subscribe((res: any) => {
+      if (res){
+        this.allOrdersList = res.data;
+        console.log('ty', this.allOrdersList);
+      }
+    });
   }
 
 }
