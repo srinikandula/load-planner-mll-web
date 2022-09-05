@@ -22,6 +22,8 @@ export class LoginComponent implements OnInit {
   get f() {
     return this.loginForm.controls;
   }
+
+  public error: any;
   constructor(private _httpClient: HttpClient, public _apiUrls: ApiUrls, private _authenticationService: AuthenticationService, private fb: FormBuilder,private route: ActivatedRoute,
               private router: Router,) {
     // if (this._authenticationService.currentUserValue) {
@@ -51,7 +53,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void{
     this._authenticationService.logIn(this.f.username.value, this.f.password.value).subscribe( (data: any) => {
-      this.router.navigate([this.returnUrl]);
       const Toast = Swal.mixin({
         toast: true,
         position: 'bottom-end',
@@ -63,7 +64,12 @@ export class LoginComponent implements OnInit {
           toast.addEventListener('mouseleave', Swal.resumeTimer);
         }
       });
-      Toast.fire({icon: 'success', title: 'Login in successfully'});
+      if (data.success === true){
+        this.router.navigate([this.returnUrl]);
+        Toast.fire({icon: 'success', title: 'Login in successfully'});
+      } else {
+        this.error = data.message;
+      }
     });
   }
 
