@@ -139,7 +139,8 @@ input.hide-clear[type="search"]::-webkit-search-results-decoration {
   padding: .5rem 1rem 0 0;
   transition: .5s;
   z-index: var(--z-fixed);
-  box-shadow: 3px 0px 20px 0px #00000029;
+  /*box-shadow: 3px 0px 20px 0px #00000029;*/
+  box-shadow: 0px 3px 6px #00000029;
   font-weight: 600;
 }
 
@@ -336,6 +337,26 @@ input.hide-clear[type="search"]::-webkit-search-results-decoration {
   border-radius: 10px;
   padding: 10px;
 }
+.icon-awesome-image{
+  display: inline-flex;
+  vertical-align: middle;
+  padding: 1px 6px 0px 6px;
+}
+
+.downTemplate{
+  background-color: #D6223A;
+  font-size:14px; border: 1px solid #D6223A;
+  border-radius: 10px;width: 177px;
+  height: 43px;letter-spacing: 0px;
+  color: #FFFFFF;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.downTemplate:hover, .downTemplate:active, .downTemplate:focus{
+  background-color: #D6223A;
+  color: #FFFFFF;
+}
 
 .app-content{
   min-height: calc(100vh - 50px);
@@ -381,9 +402,17 @@ input.hide-clear[type="search"]::-webkit-search-results-decoration {
 .planner-tabs {
   padding: 8px 20px;
   border-radius: 10px;
-  font-size: 14px;
+  /*color: #000000 !important;*/
 }
 
+.planner-tabs-header{
+  display: inline-flex;
+  vertical-align: middle;
+  background-color: #FFFFFF;
+  padding: .3rem;
+  border-radius: 4px;
+  /*color: #000000 !important;*/
+}
 .btn {
   font-size:14px!important;
 }
@@ -406,14 +435,61 @@ input.hide-clear[type="search"]::-webkit-search-results-decoration {
   padding-left: 2rem !important;
 }
 
+.confirm-btn{
+  background-color: #D6223A;
+  color: #FFFFFF;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.confirm-btn:hover{
+  background-color: #D6223A;
+  color: #FFFFFF;
+}
+
+.cancel-btn{
+  color: #D6223A;
+  font-weight: 600;
+}
+
+.upload-lp-input-file{
+  margin:40px 25px 30px 25px;
+  font-size: 22px
+}
+
+.upload-lp-input-file-content{
+  font-size: 14px;
+  color: #7D7D7D
+}
+
+.upload-single-file{
+  margin: 0px 25px;
+  font-size: 14px;
+  color: #7D7D7D
+}
+
+.upload-lpif{
+  color: #000000;
+  font-size: 30px
+}
+
+.upload-file-svgIcon{
+  background-color: black;
+  height: 66px;
+  width: 54px;
+  display: inline-block;
+}
+
 .planner-tabs:hover {
   border: none;
   background-color: #D6223A !important;
   color: #FFFFFF !important;
+  font-weight: 600;
 }
 .planner-active-tabs {
   background-color: #D6223A !important;
   color: #FFFFFF !important;
+  font-weight: 600;
  }
 
 .tile-body{
@@ -467,3 +543,4 @@ table {
   border-collapse: collapse;
   width: 100%;
 }
+

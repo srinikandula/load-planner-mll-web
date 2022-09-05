@@ -67,13 +67,15 @@ export class PlannerComponent implements OnInit {
   // }
 
 
- downloadTemplate() {
-  this._apiService.downloadTemplateFile().subscribe((res: any) => {
-  console.log(res)
-  if (res && !res.error) {
-  window.location.href = res.file;
-}
-})
-}
+  downloadTemplate() {
+    this._apiService.downloadTemplateFile().subscribe((res: any) => {
+      console.log(res)
+      if (res && !res.error) {
+        window.location.href = res.file;
+      }
+    }, error => {
+      console.log(error);
+    })
+  }
 
 }
