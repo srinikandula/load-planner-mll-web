@@ -1,7 +1,8 @@
 <div class="tile">
   <h2 class="upload-lp-input-file"><b>Upload LP Input File</b></h2>
- <div class="tile-body text-center">
-   <div class="upload-file-icon" name="uploadfile" ngfSelect accept=".csv" [(files)]="xlsxFile" (filesChange)="uploadFile(xlsxFile)">
+ <div class="tile-body text-center" [ngClass]="(progress > 1) ? 'file-upload' : ''">
+<!--   <div class="upload-file-icon" name="uploadfile" ngfSelect accept=".csv" [(files)]="xlsxFile" (filesChange)="uploadFile(xlsxFile)">-->
+   <div class="upload-file-icon" name="uploadfile" appDragDrop (filesSet)="uploadFile($event)">
 <!--   <div class="upload-file-icon">-->
 <!--     <form action="/uploadExcelFile" enctype="multipart/form-data" method="post">-->
 <!--       <input type="file" name="uploadfile" accept='.csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel'>-->
@@ -9,14 +10,24 @@
 <!--     </form>-->
      <i class="svgIconUpLoadFileDetails upload-file-svgIcon"> </i>
      <h2 class="upload-lpif"><b>Upload LPIF</b></h2>
-     <div class="upload-lp-input-file-content">Drag & Drop or <span style="color: #E98F9B">Click here </span>to browse SAP data from your local device</div>
-     <div class="upload-lp-input-file-content"><span style="color: #E98F9B">Click here </span>Click here to Download Template</div>
+     <div class="upload-lp-input-file-content">Drag & Drop or
+       <span ngfSelect accept=".csv" [(files)]="xlsxFile" (fileChange)="uploadFile(xlsxFile)" style="color: #E98F9B">Click here </span>
+       to browse SAP data from your local device
+     </div>
+     <div class="upload-lp-input-file-content"><span style="color: #E98F9B" (click)="downloadTemplate()">Click here </span>Click here to Download Template</div>
    </div>
  </div>
   <small class="upload-single-file">Upload single file at a time.</small>
+<!--  <div class="file-progress-bar" >-->
+  <div class="file-progress-bar" *ngIf="progress">
+    <div style="position: absolute; background-color: #3581f512;height: 46px;top: 0;left: 0;"[ngStyle]="{'width': progress + '%'}"></div>
+    <img src="./assets/images/Group%209783.png" style=" width: 32px; height: 17px; margin: 1px 16px 2px 0px;">
+    <span style="font-size: 14px;color: #000000;width: 100%">{{fileName}}</span>
+    <div class="text-end"  style="font-size: 14px;color: #000000;" [style.width]="progress + '%'">{{progress}}%</div>
+  </div>
     <div class="text-end" style="margin: 30px 25px 8px 25px">
       <button class="btn btn-lg px-4-2rem py-2-0-8rem cancel-btn">CANCEL</button>&nbsp;&nbsp;&nbsp;&nbsp;
-      <button class="btn btn-lg px-4-2rem py-2-0-8rem confirm-btn">
+      <button class="btn btn-lg px-4-2rem py-2-0-8rem confirm-btn" (click)="confirmUploadFile()">
         CONFIRM
       </button>
     </div>

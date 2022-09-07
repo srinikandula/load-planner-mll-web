@@ -31,9 +31,20 @@ export class ApiServiceService {
   }
 
   upload(subUrl: any, data: File) {
-    console.log(data)
     const formData: FormData = new FormData();
-    formData.append('uploadCsv', data, data.name);
-    return this._httpClient.post(this._apiUrls.mainUrl + subUrl, formData);
+    formData.append('uploadCsv', data);
+    return this._httpClient.post(this._apiUrls.mainUrl + subUrl, formData, {
+      reportProgress: true,
+      observe: "events"
+    });
+  }
+
+  uploadFile(subUrl: any, data: File) {
+    const formData: FormData = new FormData();
+    formData.append('uploadCsv', data);
+    return this._httpClient.post('', formData, {
+      reportProgress: true,
+      observe: "events"
+    });
   }
 }

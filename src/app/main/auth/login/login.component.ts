@@ -26,9 +26,9 @@ export class LoginComponent implements OnInit {
   public error: any;
   constructor(private _httpClient: HttpClient, public _apiUrls: ApiUrls, private _authenticationService: AuthenticationService, private fb: FormBuilder,private route: ActivatedRoute,
               private router: Router,) {
-    // if (this._authenticationService.currentUserValue) {
-    //   this.router.navigate(['/']);
-    // }
+    if (this._authenticationService.currentUserValue) {
+      this.router.navigate(['/']);
+    }
   }
 
 
@@ -64,12 +64,13 @@ export class LoginComponent implements OnInit {
           toast.addEventListener('mouseleave', Swal.resumeTimer);
         }
       });
-      if (data.success === true){
-        this.router.navigate([this.returnUrl]);
-        Toast.fire({icon: 'success', title: 'Login in successfully'});
-      } else {
-        this.error = data.message;
-      }
+      this.router.navigate([this.returnUrl]);
+      // if (data.success === true){
+      //   this.router.navigate([this.returnUrl]);
+      //   Toast.fire({icon: 'success', title: 'Login in successfully'});
+      // } else {
+      //   this.error = data.message;
+      // }
     });
   }
 

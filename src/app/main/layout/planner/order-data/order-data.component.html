@@ -7,31 +7,48 @@
         <th scope="col" style="padding: 20px">
           <img src="./assets/images/Checkbox.png">
         </th>
-        <th scope="col" style="padding: 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">consignment Number</th>
-        <th scope="col" style="padding: 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">consigner City</th>
-        <th scope="col" style="padding: 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Consigner State</th>
-        <th scope="col" style="padding: 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Consignee City</th>
-        <th scope="col" style="padding: 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Consignee State</th>
-        <th scope="col" style="padding: 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">volume CF</th>
-        <th scope="col" style="padding: 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Weight</th>
-        <th scope="col" style="padding: 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Order Date</th>
-        <th scope="col" style="padding: 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Volumetric Weight</th>
+        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">consignment Number</th>
+        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">consigner City</th>
+        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Consigner State</th>
+        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Consignee City</th>
+        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Consignee State</th>
+        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">volume CF</th>
+        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Weight</th>
+        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Order Date</th>
+        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Volumetric Weight</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let orders of allOrdersList; let i =index;">
-        <td style="padding: 20px;"><img src="./assets/images/Checkbox.png"></td>
-        <td style="padding: 20px;">{{(orderData.page - 1) * orderData.size + i + 1}}</td>
-        <td style="padding: 20px;">{{orders.consignorCity || 'NA'}}</td>
-        <td style="padding: 20px">{{orders.consigneeState || 'NA'}}</td>
-        <td style="padding: 20px">{{orders.consigneeCity || 'NA'}}</td>
-        <td style="padding: 20px">{{orders.consigneeState || 'NA'}}</td>
-        <td style="padding: 20px">{{orders.volumeCft || 'NA'}}</td>
-        <td style="padding: 20px">{{orders.weight || 'NA'}}</td>
-        <td style="padding: 20px">{{orders || 'NA'}}</td>
-        <td style="padding: 20px">{{orders || 'NA'}}</td>
+        <td style="padding: 13px 20px;color: #272d3bb8;"><img src="./assets/images/Checkbox.png"></td>
+        <td style="padding: 13px 20px;color: #272d3bb8;">{{orders.consignmentNo}}</td>
+        <td style="padding: 13px 20px;color: #272d3bb6;text-transform: capitalize;font-size: 14px">{{orders.consignorCity || 'NA'}}</td>
+        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{orders.consigneeState || 'NA'}}</td>
+        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{orders.consigneeCity || 'NA'}}</td>
+        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{orders.consigneeState || 'NA'}}</td>
+        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{orders.volumeCft || 'NA'}}</td>
+        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{orders.weight || 'NA'}}</td>
+        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{orders.createdAt}}</td>
+        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{orders || 'NA'}}</td>
       </tr>
       </tbody>
     </table>
   </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6" style="color: #393B3F;font-size: 14px">Showing 1 to 10 of {{totalCount.pages}} entries</div>
+  <div class="col-sm-6">
+    <ngb-pagination *ngIf="totalCount.count" style=" float: right;
+    font-size: 14px;"
+      [(page)]="totalCount.page"
+      [pageSize]="totalCount.count"
+      [collectionSize]="totalCount.pages"
+      (pageChange)="changePage($event)"
+                    [directionLinks]="false"
+      [maxSize]="4">
+    </ngb-pagination>
+    <div><i class="fas fa-chevron-right"></i></div>
+  </div>
+<!--  </nav>-->
 </div>
