@@ -17,8 +17,12 @@ export class OrderDataComponent implements OnInit {
   public orderData: any = {
     page: 1,
     size: 10,
-    count: 0,
+    count: 5,
     pageSizes: [],
+  };
+  public totalCount: any= {
+    page: 1,
+    count: 5,
   };
   constructor(private _httpClient: HttpClient,
               public _apiUrls: ApiUrls,
@@ -33,12 +37,17 @@ export class OrderDataComponent implements OnInit {
   }
 
   getAllOrders(): void{
-    this._apiService.get(this._apiUrls.getAllOrders).subscribe((res: any) => {
+    this._apiService.get(this._apiUrls.getAllOrders + '?page=' + this.totalCount.page).subscribe((res: any) => {
       if (res){
         this.allOrdersList = res.data;
+        this.totalCount = res;
         console.log('ty', this.allOrdersList);
       }
     });
   }
 
+  changePage(event: any) {
+    this.totalCount.page = event;
+    this.getAllOrders();
+  }
 }

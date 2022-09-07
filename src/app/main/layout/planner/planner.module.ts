@@ -8,6 +8,9 @@ import { OrderDataComponent } from './order-data/order-data.component';
 import { PlannedTripsComponent } from './planned-trips/planned-trips.component';
 import { UnplannedTripsComponent } from './unplanned-trips/unplanned-trips.component';
 import { ngfModule, ngf } from "angular-file"
+import {AppModule} from "../../../app.module";
+import {DragDropDirective} from "../../../directives/drag-drop.directive";
+import {NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
@@ -16,12 +19,15 @@ import { ngfModule, ngf } from "angular-file"
     UploadFileComponent,
     OrderDataComponent,
     PlannedTripsComponent,
-    UnplannedTripsComponent
+    UnplannedTripsComponent,
+    DragDropDirective
   ],
   imports: [
     CommonModule,
     PlannerRoutingModule,
-    ngfModule
-  ]
+    ngfModule,
+    NgbPaginationModule,
+  ],
+  exports: []
 })
 export class PlannerModule { }

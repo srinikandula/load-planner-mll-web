@@ -19,6 +19,8 @@ import {CommonModule, HashLocationStrategy, LocationStrategy} from "@angular/com
 import {MatInputModule} from "@angular/material/input";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {JwtInterceptor} from "./interceptors/jwt.interceptor";
+import { DragDropDirective } from './directives/drag-drop.directive';
+import {NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 
@@ -46,11 +48,14 @@ import {JwtInterceptor} from "./interceptors/jwt.interceptor";
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
+    NgbPaginationModule,
+
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: LocationStrategy, useClass: HashLocationStrategy},
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: []
 })
 export class AppModule { }

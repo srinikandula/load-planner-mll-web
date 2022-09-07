@@ -15,10 +15,10 @@
 <!--        <div class="col-sm-1"></div>-->
         <div class="col-sm-6">
           <ul class="body-right">
-            <li>
+            <li *ngIf="tab === 2">
               <input type="search" aria-describedby="button-addon4" placeholder="Search" class="form-control border-0 hide-clear p-0-9rem" style="font-size: 14px">
             </li>
-            <li>
+            <li *ngIf="tab === 2">
               <div class="input-group">
                 <input type="search" aria-describedby="button-addon4" placeholder="Search in table" class="form-control border-0 hide-clear p-0-8rem" style="font-size: 14px">
                 <div class="input-group-prepend">
@@ -28,7 +28,7 @@
                 </div>
               </div>
             </li>
-            <li>
+            <li *ngIf="tab === 2">
               <div class="icon-awesome-image">
                   <img  src="../../../../assets/images/Icon%20awesome-filter.png" class="icon-awesome-filter">
               </div>
@@ -36,7 +36,7 @@
 <!--                <img  src="../../../../assets/images/Icon%20awesome-filter.png">-->
 <!--              </button>-->
             </li>
-            <li>
+            <li [hidden]="tab === 2">
               <button class="btn btn-sm downTemplate" (click)="downloadTemplate()">
                     Download Template
               </button>
