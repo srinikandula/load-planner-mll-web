@@ -16,6 +16,8 @@ export class SignupComponent implements OnInit {
 
   image: any;
   signUpForm:FormGroup;
+  public signupPopover= false;
+  public companyName= '';
 
   constructor(private _httpClient: HttpClient,
               public _apiUrls: ApiUrls,
@@ -26,22 +28,31 @@ export class SignupComponent implements OnInit {
               private router: Router,) { }
 
   ngOnInit(): void {
+    console.log('k',  this.signUpForm);
     this.signUpForm = new FormGroup({
-      fullname: new FormControl(null, [Validators.required]),
+      fullName: new FormControl(null, [Validators.required]),
       emailId: new FormControl(null, [Validators.required]),
       companyName: new FormControl(null, [Validators.required]),
-      customer: new FormControl(null, [Validators.required]),
+      mobileNumber: new FormControl(null, [Validators.required]),
     });
   }
 
   userRegister(): void {
-    this._apiServiceService.create(this._apiUrls.userRegistration, this.signUpForm.value).subscribe((res: any) => {
-      if (res){
-        Swal.fire('Success', 'User Registered Successfully..!', 'success');
-        this.router.navigate(['logIn']);
-      }
+    if (this.signUpForm){
+      console.log('rt');
+      this._apiServiceService.create(this._apiUrls.userRegistration, this.signUpForm.value).subscribe((res: any) => {
+        if (res){
+          this.signupPopover = true;
+          // Swal.fire('Success', 'User Registered Successfully..!', 'success');
+          // this.router.navigate(['logIn']);
+        }
 
-    })
+      })
+    } else {
+    }
   }
 
+  close(): void {
+    this.router.navigate(['logIn']);
+  }
 }

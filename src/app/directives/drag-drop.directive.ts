@@ -12,26 +12,30 @@ export interface FileHandle {
 export class DragDropDirective {
   @Output() filesSet: EventEmitter<FileHandle[]> = new EventEmitter();
 
-  @HostBinding("style.background") private background = "#FCFCFC";
+  // @HostBinding("style.background") private background = "#FCFCFC";
+  @HostBinding("style.border-color") public borderColor: string = "#EAEAEA";
 
   constructor(private sanitizer: DomSanitizer) { }
 
   @HostListener("dragover", ["$event"]) public onDragOver(evt: DragEvent) {
     evt.preventDefault();
     evt.stopPropagation();
-    this.background = "#999";
+    // this.background = "#999";
+    this.borderColor = "#3581f561";
   }
 
   @HostListener("dragleave", ["$event"]) public onDragLeave(evt: DragEvent) {
     evt.preventDefault();
     evt.stopPropagation();
-    this.background = "#eee";
+    // this.background = "#eee";
+    this.borderColor = "#3581f561";
   }
 
   @HostListener('drop', ['$event']) public onDrop(evt: DragEvent) {
     evt.preventDefault();
     evt.stopPropagation();
-    this.background = '#eee';
+    // this.background = '#eee';
+    this.borderColor = "#3581f561";
 
     let filesSet: FileHandle[] = [];
     // @ts-ignore

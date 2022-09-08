@@ -47,6 +47,7 @@ export class OrderDataComponent implements OnInit {
   }
 
   changePage(event: any) {
+    console.log(event)
     this.totalCount.page = event;
     this.getAllOrders();
   }

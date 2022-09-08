@@ -524,7 +524,7 @@ input.hide-clear[type="search"]::-webkit-search-results-decoration {
   border-radius: 10px;
 }
 table tr th {
-  border-bottom: 1px solid #EAEAEA;
+  border-bottom: 1px solid #EAEAEA !important;
 }
 table tr td {
   border-bottom: none
@@ -534,6 +534,10 @@ table tr td {
   overflow-y: auto;
   /*height: 110px;*/
   max-height: 100vh
+}
+
+.fixTableHead::-webkit-scrollbar {
+  display: none;
 }
 
 .fixTableHead thead th {
@@ -575,5 +579,18 @@ table {
   border-color: #db2b30!important;
 }
 
+.click-here:hover{
+  text-decoration: underline #db2b30!important;
+  color: #db2b30!important;
+}
 
+.pagination-cus .pagination li:first-child .page-link, .pagination-cus .pagination li:last-child .page-link {
+  border: none !important;
+}
+
+.pagination-cus .pagination li:first-child .page-link,
+.pagination-cus .pagination li:last-child .page-link {
+  background-color: rgba(243, 243, 244, 0) !important;
+  padding: 0 !important;
+}
 

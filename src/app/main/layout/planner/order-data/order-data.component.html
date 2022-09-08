@@ -39,16 +39,45 @@
 <div class="row">
   <div class="col-sm-6" style="color: #393B3F;font-size: 14px">Showing 1 to 10 of {{totalCount.pages}} entries</div>
   <div class="col-sm-6">
-    <ngb-pagination *ngIf="totalCount.count" style=" float: right;
-    font-size: 14px;"
-      [(page)]="totalCount.page"
-      [pageSize]="totalCount.count"
-      [collectionSize]="totalCount.pages"
-      (pageChange)="changePage($event)"
-                    [directionLinks]="false"
-      [maxSize]="4">
-    </ngb-pagination>
-    <div><i class="fas fa-chevron-right"></i></div>
+    <ul style="list-style: none; display: flex; align-items: center; justify-content: flex-end;">
+      <li style="padding: 0px 10px; font-size: 12px"><label>Show</label></li>
+      <li style="padding: 0px 10px;">
+        <select class="form-select">
+          <option value="1" selected>10</option>
+        </select>
+      </li>
+      <li style="padding: 0px 0px;font-size: 12px"><label>Rows</label></li>
+      <li style="padding: 0px 10px;">
+        <ngb-pagination class="d-flex justify-content-end pagination-cus" [collectionSize]="totalCount.pages" [(page)]="totalCount.page" [maxSize]="3" [pageSize]="totalCount.count" [boundaryLinks]="false" (pageChange)="changePage($event)">
+          <ng-template ngbPaginationPrevious><i style="color: #A5A5A5" class="fa fa-angle-left fa-2x" *ngIf="totalCount.page != 1"></i></ng-template>
+          <ng-template ngbPaginationNext><i style="color: #A5A5A5" class="fa fa-angle-right fa-2x"></i></ng-template>
+        </ngb-pagination>
+      </li>
+    </ul>
+<!--    <ngb-pagination *ngIf="totalCount.count" style=" float: right;-->
+<!--    font-size: 14px;"-->
+<!--      [(page)]="totalCount.page"-->
+<!--      [pageSize]="totalCount.count"-->
+<!--      [collectionSize]="totalCount.pages"-->
+<!--      (pageChange)="changePage($event)"-->
+<!--                    [directionLinks]="false"-->
+<!--      [maxSize]="4">-->
+<!--    </ngb-pagination>-->
+<!--    <div class="row">-->
+<!--      <div class="col-sm-3"></div>-->
+<!--      <div class="col-sm-1"><label>Show</label></div>-->
+<!--      <div class="col-sm-2">-->
+<!--        <select class="form-select">-->
+<!--          <option value="1" selected>10</option>-->
+<!--        </select>-->
+<!--      </div>-->
+<!--      <div class="col-sm-1"><label>Show</label></div>-->
+<!--      <div class="col-sm-5">-->
+<!--        <ngb-pagination class="d-flex justify-content-end pagination-cus" [collectionSize]="70" [(page)]="totalCount.page" [pageSize]="totalCount.count" [boundaryLinks]="false" (pageChange)="changePage($event)">-->
+<!--          <ng-template ngbPaginationPrevious><i style="color: #A5A5A5" class="fa fa-angle-left fa-2x" *ngIf="totalCount.page != 1"></i></ng-template>-->
+<!--          <ng-template ngbPaginationNext><i style="color: #A5A5A5" class="fa fa-angle-right fa-2x"></i></ng-template>-->
+<!--        </ngb-pagination>-->
+<!--      </div>-->
+<!--    </div>-->
   </div>
-<!--  </nav>-->
 </div>
