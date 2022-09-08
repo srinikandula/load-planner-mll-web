@@ -86,7 +86,9 @@
       <div class="col-sm-12">
         <div class="row align-items-center">
           <div class="col-sm-7 text-center">
-            <app-coros-video [image]="image"></app-coros-video>
+            <div style="width: 650px; height:428px;margin: auto;">
+              <app-coros-video [image]="image"></app-coros-video>
+            </div>
           </div>
           <div class="col-sm-5">
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
