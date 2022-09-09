@@ -112,12 +112,12 @@
               <div class="form-floating mb-3 col-md-6 col-sm-12">
                 <input type="password" class="form-control password" id="floatingPassword" placeholder="password"
                        formControlName="password">
+                <label for="floatingPassword" class="placeholder-names">Enter your password</label>
                 <span class="help-block"
                       *ngIf="loginForm.get('password')?.status && loginForm.get('password')?.invalid">
                  <span class="errorMessage" *ngIf="loginForm.get('password')?.touched">Password Required</span>
               </span>
                 <!--              <span class="help-b/lock">{{getErrorMessage('password')}}</span>-->
-                <label for="floatingPassword" class="placeholder-names">Enter your password</label>
               </div>
               <div class="mb-6 col-md-6 col-sm-12" style="display: flex;justify-content: space-between" role="group">
                 <div>
