@@ -4,8 +4,11 @@
     <table class="table caption-top table-hover-sticky">
       <thead>
       <tr>
-        <th scope="col" style="padding: 20px">
-          <img src="./assets/images/Checkbox.png">
+        <th scope="col" style="padding: 40px 20px 13px 20px">
+          <div class="round">
+            <input type="checkbox" name="fieldName" id="checkbox" [(ngModel)]="selectAll" (ngModelChange)="toggleAll('')">
+            <label for="checkbox" title="Select All"></label>
+          </div>
         </th>
         <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">consignment Number</th>
         <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">consigner City</th>
@@ -15,12 +18,18 @@
         <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">volume CF</th>
         <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Weight</th>
         <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Order Date</th>
-        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Volumetric Weight</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let orders of allOrdersList; let i =index;">
-        <td style="padding: 13px 20px;color: #272d3bb8;"><img src="./assets/images/Checkbox.png"></td>
+        <td style="padding: 13px 20px;color: #272d3bb8;">
+          <div class="round">
+            <input type="checkbox" name="fieldName" id="chk-{{orders._id}}"
+                   [(ngModel)]="orders.checked" [value]="orders._id"
+                   (ngModelChange)="toggleDeviceIds(orders.checked, orders)">
+            <label for="chk-{{orders._id}}" title="Select"></label>
+          </div>
+        </td>
         <td style="padding: 13px 20px;color: #272d3bb8;">{{orders.consignmentNo}}</td>
         <td style="padding: 13px 20px;color: #272d3bb6;text-transform: capitalize;font-size: 14px">{{orders.consignorCity || 'NA'}}</td>
         <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{orders.consigneeState || 'NA'}}</td>
@@ -29,11 +38,39 @@
         <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{orders.volumeCft || 'NA'}}</td>
         <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{orders.weight || 'NA'}}</td>
         <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{orders.createdAt}}</td>
-        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{orders || 'NA'}}</td>
       </tr>
       </tbody>
+<!--      <tfoot>-->
+<!--        <tr style="background-color: #D6223A">-->
+<!--          <td class="row">-->
+<!--            <div style="display: flex;align-items: center;justify-content: space-between;">-->
+<!--              <div>Run Planner (3 order : 10872313, 10872313)</div>-->
+<!--              <div>-->
+<!--                <button class="btn" style="color: #FFFFFF;font-size: 14px;padding: 13px 23px;">Select All</button>&nbsp;&nbsp;&nbsp;-->
+<!--                <button class="btn" style="border-radius: 4px;background-color: #FFFFFF; color: #D6223A;text-transform: capitalize;font-weight: 600;padding: 13px 23px;">Run Planner</button>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </td>-->
+<!--        </tr>-->
+<!--      </tfoot>-->
     </table>
   </div>
+<!--  <tfoot>-->
+<!--  <tr >-->
+<!--    <td class="row">-->
+      <div class="row" [hidden]="unSelectData === true" *ngIf="selectAll === true || checkedData === true" style="background-color: #D6223A;margin: 0px 7px;padding: 12px 0px 12px 26px;box-shadow: 0px 4px 8px #FF070748;border-radius: 0px 0px 4px 4px;">
+        <div style="display: flex;align-items: center;justify-content: space-between;">
+          <div><span style="color:#FFFFFF;font-weight: bold;font-size: 26px">Run Planner</span> <span style="font-size: 18px;color:#FFFFFF;">(3 order : 10872313, 10872313)</span></div>
+          <div>
+            <button class="btn" style="color: #FFFFFF;font-size: 14px;padding: 13px 23px;" [hidden]="unSelectAll === true" (click)="toggleAll('selectAll')">Select All</button>&nbsp;&nbsp;&nbsp;
+            <button class="btn" style="color: #FFFFFF;font-size: 14px;padding: 13px 23px;" *ngIf="unSelectAll === true" (click)="toggleAll('unSelectAll')">UnSelect All</button>&nbsp;&nbsp;&nbsp;
+            <button class="btn" style="border-radius: 4px;background-color: #FFFFFF; color: #D6223A;text-transform: capitalize;font-weight: 600;padding: 13px 23px;" (click)="runPlanner(myModal)">Run Planner</button>
+          </div>
+        </div>
+      </div>
+<!--    </td>-->
+<!--  </tr>-->
+<!--  </tfoot>-->
 </div>
 
 <div class="row">
@@ -54,30 +91,22 @@
         </ngb-pagination>
       </li>
     </ul>
-<!--    <ngb-pagination *ngIf="totalCount.count" style=" float: right;-->
-<!--    font-size: 14px;"-->
-<!--      [(page)]="totalCount.page"-->
-<!--      [pageSize]="totalCount.count"-->
-<!--      [collectionSize]="totalCount.pages"-->
-<!--      (pageChange)="changePage($event)"-->
-<!--                    [directionLinks]="false"-->
-<!--      [maxSize]="4">-->
-<!--    </ngb-pagination>-->
-<!--    <div class="row">-->
-<!--      <div class="col-sm-3"></div>-->
-<!--      <div class="col-sm-1"><label>Show</label></div>-->
-<!--      <div class="col-sm-2">-->
-<!--        <select class="form-select">-->
-<!--          <option value="1" selected>10</option>-->
-<!--        </select>-->
-<!--      </div>-->
-<!--      <div class="col-sm-1"><label>Show</label></div>-->
-<!--      <div class="col-sm-5">-->
-<!--        <ngb-pagination class="d-flex justify-content-end pagination-cus" [collectionSize]="70" [(page)]="totalCount.page" [pageSize]="totalCount.count" [boundaryLinks]="false" (pageChange)="changePage($event)">-->
-<!--          <ng-template ngbPaginationPrevious><i style="color: #A5A5A5" class="fa fa-angle-left fa-2x" *ngIf="totalCount.page != 1"></i></ng-template>-->
-<!--          <ng-template ngbPaginationNext><i style="color: #A5A5A5" class="fa fa-angle-right fa-2x"></i></ng-template>-->
-<!--        </ngb-pagination>-->
-<!--      </div>-->
-<!--    </div>-->
   </div>
 </div>
+
+<ng-template #myModal let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <div class="row">
+      <div style="display: flex;align-items: center;justify-content: space-between;">
+        <div>Configurations</div>
+        <div><i class="fa fa-times" aria-hidden="true"></i></div>
+      </div>
+    </div>
+    <div class="modal-body">
+
+    </div>
+    <div class="modal-footerda">
+
+    </div>
+  </div>
+</ng-template>

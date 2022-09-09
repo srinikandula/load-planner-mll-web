@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   returnUrl = '';
   subscription: Subscription;
   setClockTime = new Date();
+  showAndHide = false;
   get f() {
     return this.loginForm.controls;
   }

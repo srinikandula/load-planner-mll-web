@@ -11,6 +11,8 @@ import { ngfModule, ngf } from "angular-file"
 import {AppModule} from "../../../app.module";
 import {DragDropDirective} from "../../../directives/drag-drop.directive";
 import {NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
+import {FormsModule} from "@angular/forms";
+// import {ModalModule} from "ngb-modal";
 
 
 @NgModule({
@@ -22,12 +24,14 @@ import {NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
     UnplannedTripsComponent,
     DragDropDirective
   ],
-  imports: [
-    CommonModule,
-    PlannerRoutingModule,
-    ngfModule,
-    NgbPaginationModule,
-  ],
+    imports: [
+        CommonModule,
+        PlannerRoutingModule,
+        ngfModule,
+        NgbPaginationModule,
+        FormsModule,
+        // ModalModule,
+    ],
   exports: []
 })
 export class PlannerModule { }

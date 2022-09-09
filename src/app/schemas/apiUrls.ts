@@ -6,7 +6,8 @@ import {Injectable} from '@angular/core';
 
 export class ApiUrls {
 
-  mainUrl= 'http://localhost:3000/'
+  // mainUrl= 'http://192.168.29.126:3000/';
+  mainUrl= 'http://localhost:3000/';
 
 
 

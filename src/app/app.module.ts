@@ -21,6 +21,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {JwtInterceptor} from "./interceptors/jwt.interceptor";
 import { DragDropDirective } from './directives/drag-drop.directive';
 import {NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
+import {ModalModule} from "ngb-modal";
 
 
 
@@ -48,6 +49,7 @@ import {NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
+    ModalModule,
     NgbPaginationModule,
 
   ],
