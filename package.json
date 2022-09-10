@@ -31,6 +31,7 @@
     "font-awesome": "^4.7.0",
     "jquery": "^3.6.0",
     "lodash": "^4.17.21",
+    "ngb-modal": "^2.0.3",
     "rxjs": "~6.6.0",
     "sweetalert2": "^11.4.29",
     "tslib": "^2.3.0",

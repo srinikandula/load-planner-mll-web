@@ -18,6 +18,7 @@ export class SignupComponent implements OnInit {
   signUpForm:FormGroup;
   public signupPopover= false;
   public companyName= '';
+  public error: any = {};
 
   constructor(private _httpClient: HttpClient,
               public _apiUrls: ApiUrls,
@@ -38,16 +39,18 @@ export class SignupComponent implements OnInit {
   }
 
   userRegister(): void {
+    if (this.signUpForm.invalid) {
+      return;
+    }
     if (this.signUpForm){
       this._apiServiceService.create(this._apiUrls.userRegistration, this.signUpForm.value).subscribe((res: any) => {
-        if (res){
+        if (res) {
           this.signupPopover = true;
-          // Swal.fire('Success', 'User Registered Successfully..!', 'success');
-          // this.router.navigate(['logIn']);
         }
 
-      })
-    } else {
+      }, error => {
+        this.error = error;
+      });
     }
   }
 
