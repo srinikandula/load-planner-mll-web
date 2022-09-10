@@ -28,7 +28,6 @@ export class SignupComponent implements OnInit {
               private router: Router,) { }
 
   ngOnInit(): void {
-    console.log('k',  this.signUpForm);
     this.signUpForm = new FormGroup({
       username: new FormControl(null, [Validators.required]),
       fullName: new FormControl(null, [Validators.required]),
@@ -40,7 +39,6 @@ export class SignupComponent implements OnInit {
 
   userRegister(): void {
     if (this.signUpForm){
-      console.log('rt');
       this._apiServiceService.create(this._apiUrls.userRegistration, this.signUpForm.value).subscribe((res: any) => {
         if (res){
           this.signupPopover = true;
