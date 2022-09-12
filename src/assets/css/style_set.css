@@ -347,8 +347,10 @@ input.hide-clear[type="search"]::-webkit-search-results-decoration {
 .downTemplate{
   background-color: #D6223A;
   font-size:14px; border: 1px solid #D6223A;
-  border-radius: 10px;width: 177px;
-  height: 43px;letter-spacing: 0px;
+  border-radius: 10px;
+  width: 177px;
+  height: 43px;
+  letter-spacing: 0px;
   color: #FFFFFF;
   text-transform: capitalize;
   font-weight: 600;
@@ -786,31 +788,24 @@ table {
 }
 
 .rightModel .modal-dialog {
-  margin-right: 0!important;
-  margin: 0 0 0 auto;
-}
-
-.rightModel.show .modal-dialog {
-  /*transform: translateY(-50px) !important;*/
-  transform: none !important;
+  margin: 0 !important;
+  margin-left: auto !important;
+  height: 100% !important;
+  border-radius: 0;
 }
 
 .rightModel .modal-dialog .modal-content {
   height: 100%;
-  border-radius: 0!important;
+  border-radius: 0;
 }
-/*.modal-content{*/
-/*  padding: 0px 8px!important;*/
-/*}*/
 
+.rightModel .modal-dialog .modal-body {
+  overflow-y: auto;
+  border-radius: 0;
+}
 
-.footer-modal{
-  /*margin: 0px 48px 0px 48px;*/
-  /*margin: 0px 15px;*/
-  /*position: fixed;*/
-  /*bottom: 0;*/
-  /*right: 0;*/
-  /*background-color: #FFFFFF;*/
+.rightModel .modal-dialog .modal-footer {
+  border-radius: 0;
 }
 
 .truck-type-body{
@@ -838,4 +833,14 @@ table {
 
 .modal-fullscreen .modal-dialog .modal-body {
   overflow-y: auto;
+}
+
+.export-btn{
+  border: 2px solid #D6223A;
+  border-radius: 10px;
+  color: #D6223A;
+  text-transform: capitalize;
+  font-size: 14px;
+  width: 120px;
+  height: 43px;
 }
