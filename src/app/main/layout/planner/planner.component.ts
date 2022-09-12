@@ -78,4 +78,7 @@ export class PlannerComponent implements OnInit {
     })
   }
 
+  exportToExcel() {
+    this._apiService.exportExcel('PlannedData', 'PlannedData', '', 11);
+  }
 }

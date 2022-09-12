@@ -18,18 +18,19 @@ export class OrderDataComponent implements OnInit {
   public allOrdersList: Array<any> = [];
   public orderData: any = {
     page: 1,
-    size: 10,
-    count: 5,
-    pageSizes: [],
+    count: 10,
   };
   public totalCount: any= {
     page: 1,
-    count: 5,
+    count: 10,
   };
 
   orderIdsSet: any = []
   public updated = {
     orderIds: this.orderIdsSet,
+    vehicleType: '12',
+    tripDate: '2022-09-09',
+    tripTime: '02:00',
   };
 
   public selectData = false;
@@ -58,7 +59,7 @@ export class OrderDataComponent implements OnInit {
   }
 
   getAllOrders(): void{
-    this._apiService.get(this._apiUrls.getAllOrders + '?page=' + this.totalCount.page).subscribe((res: any) => {
+    this._apiService.getAll(this._apiUrls.getAllOrders, this.orderData).subscribe((res: any) => {
       if (res){
         this.allOrdersList = res.data;
         this.totalCount = res;
@@ -67,7 +68,7 @@ export class OrderDataComponent implements OnInit {
   }
 
   changePage(event: any) {
-    this.totalCount.page = event;
+    this.orderData.page = event;
     this.getAllOrders();
   }
 
@@ -147,6 +148,10 @@ export class OrderDataComponent implements OnInit {
   }
 
   proceed(myModal: any): void {
-    this.ngModalService.open(myModal, {windowClass: 'modal-fullscreen'});
+    this._apiService.getAll(this._apiUrls.createOrder, this.updated).subscribe((res: any) => {
+      if (res){
+        this.ngModalService.open(myModal, {windowClass: 'modal-fullscreen'});
+      }
+    })
   }
 }

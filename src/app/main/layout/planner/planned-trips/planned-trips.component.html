@@ -2,15 +2,15 @@
      xmlns="http://www.w3.org/1999/html">Planned Trips Data</div>
 <div class="order-data-tile">
   <div class="fixTableHead">
-    <table class="table caption-top table-hover-sticky">
+    <table class="table caption-top table-hover-sticky" id="PlannedData">
       <thead>
       <tr>
-<!--        <th scope="col" style="padding: 40px 20px 13px 20px">-->
-<!--          <div class="round">-->
-<!--            <input type="checkbox" name="fieldName" id="checkbox" [(ngModel)]="selectAll" (ngModelChange)="toggleAll('')">-->
-<!--            <label for="checkbox" title="Select All"></label>-->
-<!--          </div>-->
-<!--        </th>-->
+        <th scope="col" style="padding: 40px 20px 13px 20px">
+          <div class="round">
+            <input type="checkbox" name="fieldName" id="checkbox" [(ngModel)]="selectAll" (ngModelChange)="toggleAll()">
+            <label for="checkbox" title="Select All"></label>
+          </div>
+        </th>
         <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Order Number</th>
         <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Case Type</th>
         <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Estimated Arrival Time</th>
@@ -24,12 +24,12 @@
       <tbody>
       <tr *ngFor="let orders of plannedOrdersList; let i =index;">
         <td style="padding: 13px 20px;color: #272d3bb8;">
-<!--          <div class="round">-->
-<!--            <input type="checkbox" name="fieldName" id="chk-{{orders._id}}"-->
-<!--                   [(ngModel)]="orders.checked" [value]="orders._id"-->
-<!--                   (ngModelChange)="toggleDeviceIds(orders.checked, orders)">-->
-<!--            <label for="chk-{{orders._id}}" title="Select"></label>-->
-<!--          </div>-->
+          <div class="round">
+            <input type="checkbox" name="fieldName" id="chk-{{orders._id}}"
+                   [(ngModel)]="orders.checked" [value]="orders._id"
+                   (ngModelChange)="toggleDeviceIds(orders.checked, orders)">
+            <label for="chk-{{orders._id}}" title="Select"></label>
+          </div>
         </td>
         <td style="padding: 13px 20px;color: #272d3bb8;">{{orders.consignmentNo}}</td>
         <td style="padding: 13px 20px;color: #272d3bb6;text-transform: capitalize;font-size: 14px">{{orders.consignorCity || 'NA'}}</td>
@@ -55,5 +55,25 @@
       <!--        </tr>-->
       <!--      </tfoot>-->
     </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6" style="color: #393B3F;font-size: 14px">Showing 1 to 10 of {{totalCount.pages}} entries</div>
+  <div class="col-sm-6">
+    <ul style="list-style: none; display: flex; align-items: center; justify-content: flex-end;">
+      <li style="padding: 0px 10px; font-size: 12px"><label>Show</label></li>
+      <li style="padding: 0px 10px;">
+        <select class="form-select">
+          <option value="1" selected>10</option>
+        </select>
+      </li>
+      <li style="padding: 0px 0px;font-size: 12px"><label>Rows</label></li>
+      <li style="padding: 0px 10px;">
+        <ngb-pagination class="d-flex justify-content-end pagination-cus" [collectionSize]="totalCount.pages" [(page)]="totalCount.page" [maxSize]="3" [pageSize]="totalCount.count" [boundaryLinks]="false" (pageChange)="changePage($event)">
+          <ng-template ngbPaginationPrevious><i style="color: #A5A5A5" class="fa fa-angle-left fa-2x" *ngIf="totalCount.page != 1"></i></ng-template>
+          <ng-template ngbPaginationNext><i style="color: #A5A5A5" class="fa fa-angle-right fa-2x"></i></ng-template>
+        </ngb-pagination>
+      </li>
+    </ul>
   </div>
 </div>

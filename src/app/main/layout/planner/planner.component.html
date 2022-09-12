@@ -15,10 +15,10 @@
 <!--        <div class="col-sm-1"></div>-->
         <div class="col-sm-6">
           <ul class="body-right">
-            <li *ngIf="tab === 2">
+            <li *ngIf="tab === 2 || tab === 3">
               <input type="search" aria-describedby="button-addon4" placeholder="Search" class="form-control border-0 hide-clear p-0-9rem" style="font-size: 14px">
             </li>
-            <li *ngIf="tab === 2">
+            <li *ngIf="tab === 2 || tab === 3">
               <div class="input-group">
                 <input type="search" aria-describedby="button-addon4" placeholder="Search in table" class="form-control border-0 hide-clear p-0-8rem" style="font-size: 14px">
                 <div class="input-group-prepend">
@@ -28,7 +28,7 @@
                 </div>
               </div>
             </li>
-            <li *ngIf="tab === 2">
+            <li *ngIf="tab === 2 || tab === 3">
               <div class="icon-awesome-image">
                   <img  src="../../../../assets/images/Icon%20awesome-filter.png" class="icon-awesome-filter">
               </div>
@@ -36,9 +36,14 @@
 <!--                <img  src="../../../../assets/images/Icon%20awesome-filter.png">-->
 <!--              </button>-->
             </li>
-            <li [hidden]="tab === 2">
+            <li [hidden]="tab === 2 || tab === 3">
               <button class="btn btn-sm downTemplate" (click)="downloadTemplate()">
                     Download Template
+              </button>
+            </li>
+            <li *ngIf="tab === 3">
+              <button class="btn btn-sm export-btn" (click)="exportToExcel()">
+                Export Data
               </button>
             </li>
           </ul>
