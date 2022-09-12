@@ -235,7 +235,7 @@ input.hide-clear[type="search"]::-webkit-search-results-decoration {
   margin: auto;
 }
 
-.show {
+.show-nav {
   left: 0
 }
 
@@ -313,7 +313,7 @@ input.hide-clear[type="search"]::-webkit-search-results-decoration {
     padding: 0rem 1rem 0 0
   }
 
-  .show {
+  .show-nav {
     width: calc(var(--nav-width) + 175px)
     /*width: calc(var(--nav-width) + 156px)*/
   }
@@ -691,4 +691,119 @@ table {
 
 .close{
   color: #D12139;font-size: 16px
+}
+
+.modal-planner{
+  position: fixed!important;
+  top: 0!important;
+  right: 0!important;
+  border: 2px solid #E3EEFF;
+  height: 100%;
+}
+
+.modal-planner.right-planner .modal-dialog-load-planner {
+  margin: auto!important;
+  width: 411px!important;
+  background-color: #FFFFFF!important;
+  /*height: 100vh;*/
+}
+.proceed-btn{
+  width: 384px;
+  background: #D6223A;
+  color: #FFFFFF;
+  border-radius: 3px;
+  padding: 13px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+
+}
+
+.modal-cancel-btn{
+  width: 384px;
+  color: #000000;
+  padding: 13px;
+  text-align: center;
+}
+.proceed-btn:active, .proceed-btn:hover, .proceed-btn:focus{
+  background: #D6223A;
+  color: #FFFFFF;
+}
+
+
+.modal-planner.right-planner{
+  height: 100%!important;
+  overflow-y: auto!important;
+}
+
+
+.modal-open .modal-planner {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.modal-planner.right-planner.fade-plannere .modal-dialog-load-planner {
+  right: -320px!important;
+}
+
+
+.modal-header {
+  border-bottom-color: #eeeeee00;
+  padding-top: 37px;
+  /*position: fixed;*/
+  /*top: 0;*/
+  /*background-color: #FFFFFF;*/
+}
+
+
+.truck-type{
+  padding: 19px 24px;
+  display: flex;
+  justify-content: space-between;
+  margin: 19px 0px;
+  border: 2px solid #E3EEFF;
+}
+
+.truck-type:active{
+  background-color: #EAF2FE;
+}
+ .active-truck{
+  background-color: #EAF2FE;
+}
+
+.footer-modal{
+  margin: 0px 15px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: #FFFFFF;
+}
+
+.modal-planner::-webkit-scrollbar{
+  display: none;
+}
+
+
+.btn-close:focus {
+  box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 0%);
+  opacity: 1;
+}
+
+.btn-close:hover {
+  box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+}
+
+.rightModel .modal-dialog {
+  margin-right: 0!important;
+  margin: auto;
+}
+
+.rightModel.show .modal-dialog {
+  /*transform: translateY(-50px) !important;*/
+  transform: none !important;
+}
+
+.rightModel .modal-dialog .modal-content {
+  height: 100vh;
+  border-radius: 0!important;
 }

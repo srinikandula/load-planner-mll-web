@@ -5,7 +5,7 @@ import {AuthenticationService} from "../../../../services/authentication.service
 import {FormBuilder} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ApiServiceService} from "../../../../services/api-service.service";
-import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {ModalDismissReasons, NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ModalManager} from "ngb-modal";
 
 @Component({
@@ -33,7 +33,7 @@ export class OrderDataComponent implements OnInit {
   };
 
   public selectData = false;
-  // @ViewChild('myModal') myModal: any;
+  @ViewChild('myModal') myModal: any;
 
   public selectAll: boolean;
   public selectAllIds= 'selectAll';
@@ -50,6 +50,7 @@ export class OrderDataComponent implements OnInit {
               private router: Router,
               private modelService: ModalManager,
               private ngModalService: NgbModal,
+              public  activeModal: NgbActiveModal,
               private _apiService: ApiServiceService) { }
 
   ngOnInit(): void {
@@ -129,7 +130,19 @@ export class OrderDataComponent implements OnInit {
 
   runPlanner(myModal: any): void {
     this.orderIds = this.updated.orderIds;
-    // this.modalRef =  this.ngModalService.open(myModal, {size: 'sm', keyboard: false});
-    this.ngModalService.open(myModal, {size: 'lg', backdrop: 'static', windowClass: 'rightModal', keyboard: false});
+    // this.modalRef =  this.modelService.open(this.myModal, {size: 'sm', keyboard: false,
+    //   hideCloseButton: false,
+    //   centered: false,
+    //   backdrop: false,
+    //   animation: true,
+    //   show:false,
+    //   fade: false,
+    //   closeOnOutsideClick: true,
+    //   backdropClass:false});
+    this.ngModalService.open(myModal, {windowClass: 'rightModel', keyboard: false, animation: true, backdrop: "static"});
+  }
+
+  close(): void {
+    this.ngModalService.dismissAll();
   }
 }

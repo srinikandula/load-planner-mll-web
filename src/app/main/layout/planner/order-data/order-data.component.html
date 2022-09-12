@@ -64,7 +64,7 @@
           <div>
             <button class="btn" style="color: #FFFFFF;font-size: 14px;padding: 13px 23px;" [hidden]="unSelectAll === true" (click)="toggleAll('selectAll')">Select All</button>&nbsp;&nbsp;&nbsp;
             <button class="btn" style="color: #FFFFFF;font-size: 14px;padding: 13px 23px;" *ngIf="unSelectAll === true" (click)="toggleAll('unSelectAll')">UnSelect All</button>&nbsp;&nbsp;&nbsp;
-            <button class="btn" style="border-radius: 4px;background-color: #FFFFFF; color: #D6223A;text-transform: capitalize;font-weight: 600;padding: 13px 23px;" (click)="runPlanner(myModal)">Run Planner</button>
+            <button class="btn" style="border-radius: 4px;background-color: #FFFFFF; color: #D6223A;text-transform: capitalize;font-weight: 600;padding: 13px 23px;"  (click)="runPlanner(myModal)">Run Planner</button>
           </div>
         </div>
       </div>
@@ -96,17 +96,166 @@
 
 <ng-template #myModal let-c="close" let-d="dismiss">
   <div class="modal-header">
-    <div class="row">
-      <div style="display: flex;align-items: center;justify-content: space-between;">
-        <div>Configurations</div>
-        <div><i class="fa fa-times" aria-hidden="true"></i></div>
+    <h4 class="modal-title" style="font-size: 30px;color: #353F4D;text-transform: capitalize;opacity: 1;">Configurations</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
+  </div>
+  <div class="modal-body">
+    <div style="color: #818182;font-size: 12px;">SELECT TRUCK TYPE</div>
+    <div class="truck-type active-truck">
+      <img src="./assets/images/svg_icons/truck.svg" width="140">
+      <div>
+        <h3 style="letter-spacing: 0px;color: #000000;font-size: 16px">14-16 Mt 32</h3>
+        <small style="font-size: 16px;color: #818182;text-transform: capitalize;">Multi Axle Container</small>
       </div>
     </div>
-    <div class="modal-body">
-
+    <div class="truck-type">
+      <img src="./assets/images/svg_icons/truck.svg" width="140">
+      <div>
+        <h3 style="letter-spacing: 0px;color: #000000;font-size: 16px">14-16 Mt 32</h3>
+        <small style="font-size: 16px;color: #818182;text-transform: capitalize;">Multi Axle Container</small>
+      </div>
     </div>
-    <div class="modal-footerda">
-
+    <div class="truck-type">
+      <img src="./assets/images/svg_icons/truck.svg" width="140">
+      <div>
+        <h3 style="letter-spacing: 0px;color: #000000;font-size: 16px">14-16 Mt 32</h3>
+        <small style="font-size: 16px;color: #818182;text-transform: capitalize;">Multi Axle Container</small>
+      </div>
+    </div>
+    <div class="truck-type">
+      <img src="./assets/images/svg_icons/truck.svg" width="140">
+      <div>
+        <h3 style="letter-spacing: 0px;color: #000000;font-size: 16px">14-16 Mt 32</h3>
+        <small style="font-size: 16px;color: #818182;text-transform: capitalize;">Multi Axle Container</small>
+      </div>
+    </div>
+    <div class="truck-type">
+      <img src="./assets/images/svg_icons/truck.svg" width="140">
+      <div>
+        <h3 style="letter-spacing: 0px;color: #000000;font-size: 16px">14-16 Mt 32</h3>
+        <small style="font-size: 16px;color: #818182;text-transform: capitalize;">Multi Axle Container</small>
+      </div>
     </div>
   </div>
+  <div class="modal-footer">
+<!--    <div class="footer-modal">-->
+<!--      &lt;!&ndash;          <div class="footer-modal">&ndash;&gt;-->
+<!--      <div style="color: #818182;font-size: 12px;">SELECT DATE & TIME</div>-->
+<!--      <div class="mt-2" style="display: flex;align-items: center;justify-content: space-between;">-->
+<!--        <div style="background-color: #81818221;padding: 12px 30px 12px 30px;border-radius: 6px;"><span style="font-size: 11px">DATE</span>&nbsp;&nbsp;<span>16-11-2022</span></div>-->
+<!--        <div style="background-color: #81818221;padding: 12px 30px 12px 30px;border-radius: 6px"><span style="font-size: 11px">TIME</span>&nbsp;&nbsp;<span>14 : 00 PM</span></div>-->
+<!--      </div>-->
+<!--      <div class="mt-md-5">-->
+<!--        <button type="submit" class="btn proceed-btn" >Proceed</button>-->
+<!--      </div>-->
+<!--      <button type="submit" class="btn modal-cancel-btn" (click)="close()" >Cancel</button>-->
+<!--    </div>-->
+  </div>
 </ng-template>
+
+<!--<ng-template #myModal let-c="close" let-d="dismiss">-->
+<!--  <div class="right-planner fade-planner" id="myModal2"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">-->
+<!--&lt;!&ndash;    <div class="modal-planner right-planner fade-planner" id="myModal2"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">&ndash;&gt;-->
+<!--    <div class="modal-dialog" role="document">-->
+<!--&lt;!&ndash;    <div class="modal-dialog-load-planner" role="document">&ndash;&gt;-->
+<!--        <div class="modal-header">-->
+<!--            <div class="modal-title" id="modal-basic-title" style="font-size: 30px;color: #353F4D;text-transform: capitalize;opacity: 1;">Configurations</div>-->
+<!--            <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>-->
+<!--        </div>-->
+<!--        <div class="modal-body">-->
+<!--          <div style="color: #818182;font-size: 12px;">SELECT TRUCK TYPE</div>-->
+<!--          <div class="truck-type active-truck">-->
+<!--            <img src="./assets/images/svg_icons/truck.svg" width="140">-->
+<!--            <div>-->
+<!--              <h3 style="letter-spacing: 0px;color: #000000;font-size: 16px">14-16 Mt 32</h3>-->
+<!--              <small style="font-size: 16px;color: #818182;text-transform: capitalize;">Multi Axle Container</small>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="truck-type">-->
+<!--            <img src="./assets/images/svg_icons/truck.svg" width="140">-->
+<!--            <div>-->
+<!--              <h3 style="letter-spacing: 0px;color: #000000;font-size: 16px">14-16 Mt 32</h3>-->
+<!--              <small style="font-size: 16px;color: #818182;text-transform: capitalize;">Multi Axle Container</small>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="truck-type">-->
+<!--            <img src="./assets/images/svg_icons/truck.svg" width="140">-->
+<!--            <div>-->
+<!--              <h3 style="letter-spacing: 0px;color: #000000;font-size: 16px">14-16 Mt 32</h3>-->
+<!--              <small style="font-size: 16px;color: #818182;text-transform: capitalize;">Multi Axle Container</small>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="truck-type">-->
+<!--            <img src="./assets/images/svg_icons/truck.svg" width="140">-->
+<!--            <div>-->
+<!--              <h3 style="letter-spacing: 0px;color: #000000;font-size: 16px">14-16 Mt 32</h3>-->
+<!--              <small style="font-size: 16px;color: #818182;text-transform: capitalize;">Multi Axle Container</small>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="truck-type">-->
+<!--            <img src="./assets/images/svg_icons/truck.svg" width="140">-->
+<!--            <div>-->
+<!--              <h3 style="letter-spacing: 0px;color: #000000;font-size: 16px">14-16 Mt 32</h3>-->
+<!--              <small style="font-size: 16px;color: #818182;text-transform: capitalize;">Multi Axle Container</small>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="truck-type">-->
+<!--            <img src="./assets/images/svg_icons/truck.svg" width="140">-->
+<!--            <div>-->
+<!--              <h3 style="letter-spacing: 0px;color: #000000;font-size: 16px">14-16 Mt 32</h3>-->
+<!--              <small style="font-size: 16px;color: #818182;text-transform: capitalize;">Multi Axle Container</small>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="truck-type">-->
+<!--            <img src="./assets/images/svg_icons/truck.svg" width="140">-->
+<!--            <div>-->
+<!--              <h3 style="letter-spacing: 0px;color: #000000;font-size: 16px">14-16 Mt 32</h3>-->
+<!--              <small style="font-size: 16px;color: #818182;text-transform: capitalize;">Multi Axle Container</small>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="truck-type">-->
+<!--            <img src="./assets/images/svg_icons/truck.svg" width="140">-->
+<!--            <div>-->
+<!--              <h3 style="letter-spacing: 0px;color: #000000;font-size: 16px">14-16 Mt 32</h3>-->
+<!--              <small style="font-size: 16px;color: #818182;text-transform: capitalize;">Multi Axle Container</small>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="truck-type">-->
+<!--            <img src="./assets/images/svg_icons/truck.svg" width="140">-->
+<!--            <div>-->
+<!--              <h3 style="letter-spacing: 0px;color: #000000;font-size: 16px">14-16 Mt 32</h3>-->
+<!--              <small style="font-size: 16px;color: #818182;text-transform: capitalize;">Multi Axle Container</small>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="truck-type">-->
+<!--            <img src="./assets/images/svg_icons/truck.svg" width="140">-->
+<!--            <div>-->
+<!--              <h3 style="letter-spacing: 0px;color: #000000;font-size: 16px">14-16 Mt 32</h3>-->
+<!--              <small style="font-size: 16px;color: #818182;text-transform: capitalize;">Multi Axle Container</small>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="truck-type">-->
+<!--            <img src="./assets/images/svg_icons/truck.svg" width="140">-->
+<!--            <div>-->
+<!--              <h3 style="letter-spacing: 0px;color: #000000;font-size: 16px">14-16 Mt 32</h3>-->
+<!--              <small style="font-size: 16px;color: #818182;text-transform: capitalize;">Multi Axle Container</small>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="">-->
+<!--&lt;!&ndash;          <div class="footer-modal">&ndash;&gt;-->
+<!--          <div style="color: #818182;font-size: 12px;">SELECT DATE & TIME</div>-->
+<!--          <div class="mt-2" style="display: flex;align-items: center;justify-content: space-between;">-->
+<!--            <div style="background-color: #81818221;padding: 12px 30px 12px 30px;border-radius: 6px;"><span style="font-size: 11px">DATE</span>&nbsp;&nbsp;<span>16-11-2022</span></div>-->
+<!--            <div style="background-color: #81818221;padding: 12px 30px 12px 30px;border-radius: 6px"><span style="font-size: 11px">TIME</span>&nbsp;&nbsp;<span>14 : 00 PM</span></div>-->
+<!--          </div>-->
+<!--          <div class="mt-md-5">-->
+<!--            <button type="submit" class="btn proceed-btn" >Proceed</button>-->
+<!--          </div>-->
+<!--            <button type="submit" class="btn modal-cancel-btn" (click)="close()" >Cancel</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</ng-template>-->
+
+
