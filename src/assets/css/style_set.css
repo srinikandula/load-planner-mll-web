@@ -825,4 +825,17 @@ table {
   border-top-color: #eeeeee00!important;
 }
 
+.modal-fullscreen .modal-dialog {
+  width: 100vw;
+  max-width: none;
+  margin: 0 !important;
+  height: 100% !important;
+}
 
+.modal-fullscreen .modal-dialog .modal-content {
+  height: 100%;
+}
+
+.modal-fullscreen .modal-dialog .modal-body {
+  overflow-y: auto;
+}

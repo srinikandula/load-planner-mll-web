@@ -1,5 +1,59 @@
-<div class="tile">
-  <div class="tile-body">
-    <h2>Planned</h2>
+<div style="margin-top: 24px;margin-bottom: 12px;color: #818182;font-size: 14px;font-weight: 900"
+     xmlns="http://www.w3.org/1999/html">Planned Trips Data</div>
+<div class="order-data-tile">
+  <div class="fixTableHead">
+    <table class="table caption-top table-hover-sticky">
+      <thead>
+      <tr>
+<!--        <th scope="col" style="padding: 40px 20px 13px 20px">-->
+<!--          <div class="round">-->
+<!--            <input type="checkbox" name="fieldName" id="checkbox" [(ngModel)]="selectAll" (ngModelChange)="toggleAll('')">-->
+<!--            <label for="checkbox" title="Select All"></label>-->
+<!--          </div>-->
+<!--        </th>-->
+        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Order Number</th>
+        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Case Type</th>
+        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Estimated Arrival Time</th>
+        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Planned Weight</th>
+        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Planned Volumetric Weight</th>
+        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Weight</th>
+        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Product Name</th>
+        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Product Qty</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let orders of plannedOrdersList; let i =index;">
+        <td style="padding: 13px 20px;color: #272d3bb8;">
+<!--          <div class="round">-->
+<!--            <input type="checkbox" name="fieldName" id="chk-{{orders._id}}"-->
+<!--                   [(ngModel)]="orders.checked" [value]="orders._id"-->
+<!--                   (ngModelChange)="toggleDeviceIds(orders.checked, orders)">-->
+<!--            <label for="chk-{{orders._id}}" title="Select"></label>-->
+<!--          </div>-->
+        </td>
+        <td style="padding: 13px 20px;color: #272d3bb8;">{{orders.consignmentNo}}</td>
+        <td style="padding: 13px 20px;color: #272d3bb6;text-transform: capitalize;font-size: 14px">{{orders.consignorCity || 'NA'}}</td>
+        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{orders.consigneeState || 'NA'}}</td>
+        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{orders.consigneeCity || 'NA'}}</td>
+        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{orders.consigneeState || 'NA'}}</td>
+        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{orders.volumeCft || 'NA'}}</td>
+        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{orders.weight || 'NA'}}</td>
+        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{orders.createdAt}}</td>
+      </tr>
+      </tbody>
+      <!--      <tfoot>-->
+      <!--        <tr style="background-color: #D6223A">-->
+      <!--          <td class="row">-->
+      <!--            <div style="display: flex;align-items: center;justify-content: space-between;">-->
+      <!--              <div>Run Planner (3 order : 10872313, 10872313)</div>-->
+      <!--              <div>-->
+      <!--                <button class="btn" style="color: #FFFFFF;font-size: 14px;padding: 13px 23px;">Select All</button>&nbsp;&nbsp;&nbsp;-->
+      <!--                <button class="btn" style="border-radius: 4px;background-color: #FFFFFF; color: #D6223A;text-transform: capitalize;font-weight: 600;padding: 13px 23px;">Run Planner</button>-->
+      <!--              </div>-->
+      <!--            </div>-->
+      <!--          </td>-->
+      <!--        </tr>-->
+      <!--      </tfoot>-->
+    </table>
   </div>
 </div>

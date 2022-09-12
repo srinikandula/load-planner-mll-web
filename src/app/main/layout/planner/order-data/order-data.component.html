@@ -146,11 +146,25 @@
     </div>
   </div>
   <div class="modal-footer">
-    <button class="btn proceed-btn w-100" (click)="proceed(myModal);">Proceed</button>
+    <button class="btn proceed-btn w-100" (click)="proceed(content);">Proceed</button>
     <button class="btn model-cancel-btn w-100" (click)="close()">Cancel</button>
   </div>
 </ng-template>
 
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <p>One fine body&hellip;</p>
+    <video src="animated_medium20200910-13456-vvaq4j.mp4" type="video/mp4"  width="1200" height="900" autoplay loop muted> Sorry, your browser doesn't support HTML5 video tag.
+    </video>
+  </div>
+  <div class="modal-footer">
+  </div>
+</ng-template>
 
 
 
