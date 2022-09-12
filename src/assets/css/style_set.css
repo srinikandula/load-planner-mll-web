@@ -708,7 +708,7 @@ table {
   /*height: 100vh;*/
 }
 .proceed-btn{
-  width: 384px;
+  /*width: 384px;*/
   background: #D6223A;
   color: #FFFFFF;
   border-radius: 3px;
@@ -720,7 +720,7 @@ table {
 }
 
 .modal-cancel-btn{
-  width: 384px;
+  /*width: 384px;*/
   color: #000000;
   padding: 13px;
   text-align: center;
@@ -757,7 +757,7 @@ table {
 
 
 .truck-type{
-  padding: 19px 24px;
+  padding: 23px 43px 23px 30px;
   display: flex;
   justify-content: space-between;
   margin: 19px 0px;
@@ -771,17 +771,9 @@ table {
   background-color: #EAF2FE;
 }
 
-.footer-modal{
-  margin: 0px 15px;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  background-color: #FFFFFF;
-}
-
-.modal-planner::-webkit-scrollbar{
-  display: none;
-}
+/*.modal-planner::-webkit-scrollbar{*/
+/*  display: none;*/
+/*}*/
 
 
 .btn-close:focus {
@@ -795,7 +787,7 @@ table {
 
 .rightModel .modal-dialog {
   margin-right: 0!important;
-  margin: auto;
+  margin: 0 0 0 auto;
 }
 
 .rightModel.show .modal-dialog {
@@ -804,6 +796,33 @@ table {
 }
 
 .rightModel .modal-dialog .modal-content {
-  height: 100vh;
+  height: 100%;
   border-radius: 0!important;
 }
+/*.modal-content{*/
+/*  padding: 0px 8px!important;*/
+/*}*/
+
+
+.footer-modal{
+  /*margin: 0px 48px 0px 48px;*/
+  /*margin: 0px 15px;*/
+  /*position: fixed;*/
+  /*bottom: 0;*/
+  /*right: 0;*/
+  /*background-color: #FFFFFF;*/
+}
+
+.truck-type-body{
+  max-height: 58vh;
+  overflow-y: auto
+}
+.truck-type-body::-webkit-scrollbar{
+  display: none;
+}
+
+.modal-footer {
+  border-top-color: #eeeeee00!important;
+}
+
+

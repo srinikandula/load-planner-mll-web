@@ -145,4 +145,8 @@ export class OrderDataComponent implements OnInit {
   close(): void {
     this.ngModalService.dismissAll();
   }
+
+  proceed(myModal: any): void {
+    this.ngModalService.open(myModal, {windowClass: 'rightModel', keyboard: false, animation: true, backdrop: "static"});
+  }
 }
