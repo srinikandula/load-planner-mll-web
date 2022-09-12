@@ -7,6 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class PlannedTripsComponent implements OnInit {
   @Input() tab: any;
+  public plannedOrdersList: Array<any> = [];
   constructor() { }
 
   ngOnInit(): void {

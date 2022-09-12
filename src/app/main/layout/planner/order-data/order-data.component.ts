@@ -147,6 +147,6 @@ export class OrderDataComponent implements OnInit {
   }
 
   proceed(myModal: any): void {
-    this.ngModalService.open(myModal, {windowClass: 'rightModel', keyboard: false, animation: true, backdrop: "static"});
+    this.ngModalService.open(myModal, {windowClass: 'modal-fullscreen'});
   }
 }
