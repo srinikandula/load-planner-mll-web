@@ -33,9 +33,9 @@
               <label for="floatingEmail" class="placeholder-names">Enter your email id</label>
             </div>
             <div class="form-floating mb-3 col-md-6 col-sm-12">
-              <input type="text" class="form-control" id="floatingMobileNumber" minlength=10 maxlength=10 placeholder="phoneNumber" formControlName="phoneNumber">
-              <span class="help-block" *ngIf="signUpForm.get('phoneNumber')?.status && signUpForm.get('phoneNumber')?.invalid">
-                <span class="errorMessage"  *ngIf="signUpForm.get('phoneNumber')?.touched">MobileNumber is Required</span>
+              <input type="text" class="form-control" id="floatingMobileNumber" minlength=10 maxlength=10 placeholder="phoneNumber" formControlName="mobile">
+              <span class="help-block" *ngIf="signUpForm.get('mobile')?.status && signUpForm.get('mobile')?.invalid">
+                <span class="errorMessage"  *ngIf="signUpForm.get('mobile')?.touched">MobileNumber is Required</span>
             </span>
               <label for="floatingMobileNumber" class="placeholder-names">Enter your mobileNumber</label>
             </div>

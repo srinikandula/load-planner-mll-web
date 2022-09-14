@@ -7,6 +7,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ApiServiceService} from "../../../../services/api-service.service";
 import {ModalDismissReasons, NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ModalManager} from "ngb-modal";
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-order-data',
@@ -19,6 +20,7 @@ export class OrderDataComponent implements OnInit {
   public orderData: any = {
     page: 1,
     count: 10,
+    date: new Date(),
   };
   public totalCount: any= {
     page: 1,
@@ -26,12 +28,14 @@ export class OrderDataComponent implements OnInit {
   };
 
   orderIdsSet: any = []
-  public updated = {
+  public updated:any = {
     orderIds: this.orderIdsSet,
     vehicleType: '12',
-    tripDate: '2022-09-09',
-    tripTime: '02:00',
+    tripDate: '',
+    tripTime: '',
   };
+
+  // public truckListData: any []
 
   public selectData = false;
   @ViewChild('myModal') myModal: any;
@@ -51,8 +55,11 @@ export class OrderDataComponent implements OnInit {
               private router: Router,
               private modelService: ModalManager,
               private ngModalService: NgbModal,
-              public  activeModal: NgbActiveModal,
-              private _apiService: ApiServiceService) { }
+              private datePipe: DatePipe,
+              private _apiService: ApiServiceService) {
+    this.updated.tripTime =this.datePipe.transform((new Date), 'h:mm:');
+
+  }
 
   ngOnInit(): void {
     this.getAllOrders();
@@ -153,5 +160,9 @@ export class OrderDataComponent implements OnInit {
         this.ngModalService.open(myModal, {windowClass: 'modal-fullscreen'});
       }
     })
+  }
+
+  date() {
+
   }
 }

@@ -156,6 +156,14 @@ input.hide-clear[type="search"]::-webkit-search-results-decoration {
   align-items: center;
 }
 
+.nav-class{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden
+}
+
 .nav_logo, .nav_link {
   display: flex;
   /*display: grid;*/
@@ -810,6 +818,10 @@ table {
   border-radius: 0;
 }
 
+.rightModel .modal-dialog .modal-body::-webkit-scrollbar{
+  display: none;
+}
+
 .rightModel .modal-dialog .modal-footer {
   border-radius: 0;
 }
@@ -850,3 +862,35 @@ table {
   width: 120px;
   height: 43px;
 }
+
+.run-planner{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.modal-content {
+  padding: 0px 8px;
+}
+
+
+.input[type= 'text']:focus-visible{
+  border: none!important;
+}
+
+.input[type= 'text']:focus{
+  border: none!important;
+}
+
+.time-picker popover-container {
+  transform: none !important;
+}
+
+.date-picker{
+  padding: 11px 16px;
+  background-color: #f3f3f4;
+  border-radius: 6px;
+}
+

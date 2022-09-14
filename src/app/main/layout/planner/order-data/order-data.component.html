@@ -31,7 +31,7 @@
             <label for="chk-{{orders._id}}" title="Select"></label>
           </div>
         </td>
-        <td style="padding: 13px 20px;color: #272d3bb8;">{{orders.consignmentNo}}</td>
+        <td style="padding: 13px 20px;color: #272d3bb8;">{{orders.orderNo || 'NA'}}</td>
         <td style="padding: 13px 20px;color: #272d3bb6;text-transform: capitalize;font-size: 14px">{{orders.consignorCity || 'NA'}}</td>
         <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{orders.consigneeState || 'NA'}}</td>
         <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{orders.consigneeCity || 'NA'}}</td>
@@ -41,24 +41,8 @@
         <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{orders.createdAt}}</td>
       </tr>
       </tbody>
-<!--      <tfoot>-->
-<!--        <tr style="background-color: #D6223A">-->
-<!--          <td class="row">-->
-<!--            <div style="display: flex;align-items: center;justify-content: space-between;">-->
-<!--              <div>Run Planner (3 order : 10872313, 10872313)</div>-->
-<!--              <div>-->
-<!--                <button class="btn" style="color: #FFFFFF;font-size: 14px;padding: 13px 23px;">Select All</button>&nbsp;&nbsp;&nbsp;-->
-<!--                <button class="btn" style="border-radius: 4px;background-color: #FFFFFF; color: #D6223A;text-transform: capitalize;font-weight: 600;padding: 13px 23px;">Run Planner</button>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </td>-->
-<!--        </tr>-->
-<!--      </tfoot>-->
     </table>
   </div>
-<!--  <tfoot>-->
-<!--  <tr >-->
-<!--    <td class="row">-->
       <div class="row" [hidden]="unSelectData === true" *ngIf="selectAll === true || checkedData === true" style="background-color: #D6223A;margin: 0px 7px;padding: 12px 0px 12px 26px;box-shadow: 0px 4px 8px #FF070748;border-radius: 0px 0px 4px 4px;">
         <div style="display: flex;align-items: center;justify-content: space-between;">
           <div><span style="color:#FFFFFF;font-weight: bold;font-size: 26px">Run Planner</span> <span style="font-size: 18px;color:#FFFFFF;">(3 order : 10872313, 10872313)</span></div>
@@ -69,13 +53,10 @@
           </div>
         </div>
       </div>
-<!--    </td>-->
-<!--  </tr>-->
-<!--  </tfoot>-->
 </div>
 
 <div class="row">
-  <div class="col-sm-6" style="color: #393B3F;font-size: 14px">Showing 1 to 10 of {{totalCount.pages}} entries</div>
+  <div class="col-sm-6" style="color: #393B3F;font-size: 14px">Showing 1 to 10 of {{totalCount.total}} entries</div>
   <div class="col-sm-6">
     <ul style="list-style: none; display: flex; align-items: center; justify-content: flex-end;">
       <li style="padding: 0px 10px; font-size: 12px"><label>Show</label></li>
@@ -86,7 +67,7 @@
       </li>
       <li style="padding: 0px 0px;font-size: 12px"><label>Rows</label></li>
       <li style="padding: 0px 10px;">
-        <ngb-pagination class="d-flex justify-content-end pagination-cus" [collectionSize]="totalCount.pages" [(page)]="totalCount.page" [maxSize]="3" [pageSize]="totalCount.count" [boundaryLinks]="false" (pageChange)="changePage($event)">
+        <ngb-pagination class="d-flex justify-content-end pagination-cus" [collectionSize]="totalCount.total" [(page)]="totalCount.page" [maxSize]="3" [pageSize]="totalCount.count" [boundaryLinks]="false" (pageChange)="changePage($event)">
           <ng-template ngbPaginationPrevious><i style="color: #A5A5A5" class="fa fa-angle-left fa-2x" *ngIf="totalCount.page != 1"></i></ng-template>
           <ng-template ngbPaginationNext><i style="color: #A5A5A5" class="fa fa-angle-right fa-2x"></i></ng-template>
         </ngb-pagination>
@@ -102,7 +83,7 @@
   </div>
   <div class="modal-body">
     <label style="color: #818182;font-size: 12px;">SELECT TRUCK TYPE</label>
-    <div class="truck-type-body">
+    <div class="truck-type-body" >
       <div class="truck-type active-truck">
         <img src="./assets/images/svg_icons/truck.svg" width="160">
         <div>
@@ -113,36 +94,67 @@
       <div class="truck-type">
         <img src="./assets/images/svg_icons/truck.svg" width="160">
         <div>
-          <h3 style="letter-spacing: 0px;color: #000000;font-size: 16px">14-16 Mt 32</h3>
-          <small style="font-size: 16px;color: #818182;text-transform: capitalize;">Multi Axle Container</small>
+          <h3 style="letter-spacing: 0px;color: #000000;font-size: 16px">14-16 Mt 20-22</h3>
+          <small style="font-size: 16px;color: #818182;text-transform: capitalize;">Multi Axle Full Body</small>
         </div>
       </div>
       <div class="truck-type">
         <img src="./assets/images/svg_icons/truck.svg" width="160">
         <div>
-          <h3 style="letter-spacing: 0px;color: #000000;font-size: 16px">14-16 Mt 32</h3>
-          <small style="font-size: 16px;color: #818182;text-transform: capitalize;">Multi Axle Container</small>
+          <h3 style="letter-spacing: 0px;color: #000000;font-size: 16px">7-7.5 Mt 32</h3>
+          <small style="font-size: 16px;color: #818182;text-transform: capitalize;">Single Axle Container</small>
         </div>
       </div>
       <div class="truck-type">
         <img src="./assets/images/svg_icons/truck.svg" width="160">
         <div>
-          <h3 style="letter-spacing: 0px;color: #000000;font-size: 16px">14-16 Mt 32</h3>
-          <small style="font-size: 16px;color: #818182;text-transform: capitalize;">Multi Axle Container</small>
-        </div>
-      </div>
-      <div class="truck-type">
-        <img src="./assets/images/svg_icons/truck.svg" width="160">
-        <div>
-          <h3 style="letter-spacing: 0px;color: #000000;font-size: 16px">14-16 Mt 32</h3>
-          <small style="font-size: 16px;color: #818182;text-transform: capitalize;">Multi Axle Container</small>
+          <h3 style="letter-spacing: 0px;color: #000000;font-size: 16px">7-7.5 Mt 32</h3>
+          <small style="font-size: 16px;color: #818182;text-transform: capitalize;">Single Axle Container</small>
         </div>
       </div>
     </div>
     <label style="color: #818182;font-size: 12px;">SELECT DATE & TIME</label>
-    <div style="display: flex;align-items: center;justify-content: space-between;">
-      <div style="background-color: #81818221;padding: 12px 45px 12px 45px;border-radius: 6px;"><span style="font-size: 11px">DATE</span>&nbsp;&nbsp;<span>16-11-2022</span></div>
-      <div style="background-color: #81818221;padding: 12px 45px 12px 45px;border-radius: 6px"><span style="font-size: 11px">TIME</span>&nbsp;&nbsp;<span>14 : 00 PM</span></div>
+    <div class="row mt-2">
+      <div class="col-sm-6">
+        <div class="input-group date-picker">
+          <div class="input-group-append">
+            <button class="btn border-0" type="button"
+                    style="border: 1px solid #ced4da;"
+                    (click)="dp2.show()"
+                    [attr.aria-expanded]="dp2.isOpen">
+              DATE
+            </button>
+          </div>
+          <input name="date" class="form-control text-center border-0" placement="top" style="background-color: #f3f3f4;"
+                 [(ngModel)]="orderData.date"
+                 placeholder="Enter Date"
+                 readonly type="text"
+                 #dp2="bsDatepicker"
+                 onkeydown="return false"
+                 [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD', containerClass: 'theme-red', showTodayButton: true, todayPosition: 'center', isAnimated: true }"
+                 bsDatepicker
+                 [attr.aria-expanded]="dp2.isOpen"/>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="time-picker">
+          <div class="input-group date-picker">
+            <div class="input-group-append">
+              <button class="btn border-0" type="button"
+                      style="border: 1px solid #ced4da;"
+                      (click)="dp2.show()"
+                      [attr.aria-expanded]="dp2.isOpen">
+                TIME
+              </button>
+              {{updated.tripTimegngn}}
+            </div>
+            <ng-template #popTemplate>
+              <timepicker [(ngModel)]="updated.tripTime" ></timepicker>
+            </ng-template>
+            <input class="form-control text-center border-0" style="background-color: #f3f3f4;" [(ngModel)]="updated.tripTime" [popover]="popTemplate" />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="modal-footer">
@@ -153,16 +165,24 @@
 
 
 <ng-template #content let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title">Modal title</h4>
-    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-  </div>
-  <div class="modal-body">
-    <p>One fine body&hellip;</p>
-    <video src="animated_medium20200910-13456-vvaq4j.mp4" type="video/mp4"  width="1200" height="900" autoplay loop muted> Sorry, your browser doesn't support HTML5 video tag.
-    </video>
-  </div>
-  <div class="modal-footer">
+  <div class="login-content">
+    <div class="container-fluid login-content">
+      <div class="run-planner">
+        <div class="col-sm-12">
+          <div class="row align-items-center">
+            <div class="col-sm-5 text-center">
+              <div>Running</div>
+              <div>Planner…</div>
+            </div>
+            <div class="col-sm-7">
+              <video src="../../../../../assets/images"  type="video/mp4" style="width: 100%; height:100%;" autoplay loop muted>
+                Sorry, your browser doesn't support HTML5 video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </ng-template>
 

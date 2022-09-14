@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, DatePipe} from '@angular/common';
 
 import { PlannerRoutingModule } from './planner-routing.module';
 import {PlannerComponent} from "./planner.component";
@@ -13,7 +13,11 @@ import {DragDropDirective} from "../../../directives/drag-drop.directive";
 import {NgbActiveModal, NgbModule, NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
 import {FormsModule} from "@angular/forms";
 import {ModalModule} from "ngb-modal";
-
+import {BsDatepickerModule} from "ngx-bootstrap/datepicker";
+import {TimepickerModule} from "ngx-bootstrap/timepicker";
+import {PopoverModule} from "ngx-bootstrap/popover";
+import { UserMasterComponent } from './masters/user-master/user-master.component';
+import { HeaderBarComponent } from './masters/header-bar/header-bar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,9 @@ import {ModalModule} from "ngb-modal";
     OrderDataComponent,
     PlannedTripsComponent,
     UnplannedTripsComponent,
-    DragDropDirective
+    DragDropDirective,
+    UserMasterComponent,
+    HeaderBarComponent,
   ],
   imports: [
     CommonModule,
@@ -32,10 +38,15 @@ import {ModalModule} from "ngb-modal";
     FormsModule,
     ModalModule,
     NgbModule,
+    BsDatepickerModule.forRoot(),
+    TimepickerModule.forRoot(),
+    PopoverModule,
   ],
-  exports: [],
+  exports: [
+    BsDatepickerModule
+  ],
   providers: [
-    NgbActiveModal,
+    DatePipe
   ],
 })
 export class PlannerModule { }
