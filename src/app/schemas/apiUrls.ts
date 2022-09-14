@@ -6,8 +6,8 @@ import {Injectable} from '@angular/core';
 
 export class ApiUrls {
 
-  mainUrl= 'http://192.168.29.126:3000/';
-  // mainUrl= 'http://localhost:3000/';
+  // mainUrl= 'http://192.168.29.126:3000/';
+  mainUrl= 'http://localhost:3000/';
 
 
 
@@ -15,8 +15,11 @@ export class ApiUrls {
   userRegistration = 'api/v1/users/register';
   downloadTemplate = 'api/v1/orders/template';
   uploadCsv = 'api/v1/orders/uploadCsv';
+  uploadCsvLoad = 'api/v1/orders/uploadCsvLoad';
   getAllOrders = 'api/v1/orders/getAllOrders';
   plannedTrips = 'api/v1/orders/plannedTrips';
-  createOrder = 'api/v1/orders/createOrder';
+  createOrder = 'api/v1/orders/orderProceed';
+  pendingUsers = 'api/v1/users/pendingUsers';
+  activateUsers = 'api/v1/users/activateUsers';
 
 }

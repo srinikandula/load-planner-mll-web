@@ -22,6 +22,7 @@ import {JwtInterceptor} from "./interceptors/jwt.interceptor";
 import { DragDropDirective } from './directives/drag-drop.directive';
 import {NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
 import {ModalModule} from "ngb-modal";
+import {BsDatepickerModule, DatepickerModule} from "ngx-bootstrap/datepicker";
 
 
 
@@ -50,8 +51,7 @@ import {ModalModule} from "ngb-modal";
     FormsModule,
     ReactiveFormsModule,
     ModalModule,
-    NgbPaginationModule,
-
+    NgbPaginationModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

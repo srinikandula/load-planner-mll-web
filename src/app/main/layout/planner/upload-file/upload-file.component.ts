@@ -47,11 +47,13 @@ export class UploadFileComponent implements OnInit {
       this.fileName = this.file.name;
       const formData = new FormData();
       formData.append("uploadCsv", this.file);
-      this._httpClient
-        .post("", formData, {
-          reportProgress: true,
-          observe: "events"
-        }).subscribe((response: any) =>{
+      this._apiService
+        .get(this._apiUrls.uploadCsvLoad
+        //   , formData, {
+        //   reportProgress: true,
+        //   observe: "events"
+        // }
+        ).subscribe((response: any) =>{
         if (response.type === HttpEventType["UploadProgress"]) {
           const percentDone = Math.round(
             (100 * response.loaded) / response.total
@@ -77,11 +79,13 @@ export class UploadFileComponent implements OnInit {
       this.fileName = xlsxFile[0].name;
       const formData = new FormData();
       formData.append("uploadCsv", this.file);
-      this._httpClient
-        .post("", formData, {
-          reportProgress: true,
-          observe: "events"
-        }).subscribe((response: any) =>{
+      this._apiService
+        .get(this._apiUrls.uploadCsvLoad
+        //   , formData, {
+        //   reportProgress: true,
+        //   observe: "events"
+        // }
+        ).subscribe((response: any) =>{
         if (response.type === HttpEventType["UploadProgress"]) {
           const percentDone = Math.round(
             (100 * response.loaded) / response.total
