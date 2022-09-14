@@ -132,6 +132,131 @@ input.ng-invalid.ng-touched{
 
 }
 
+.app-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
 
+.app-sidebar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+@media print {
+  .app-sidebar {
+    display: none;
+  }
+}
+
+.app-menu {
+  margin-bottom: 0;
+  padding-bottom: 40px;
+  padding-left: 0 !important;
+}
+
+.app-menu__item {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 12px 15px;
+  font-size: 1.08em;
+  border-left: 3px solid transparent;
+  -webkit-transition: border-left-color 0.3s ease,
+  background-color 0.3s ease;
+  -o-transition: border-left-color 0.3s ease,
+  background-color 0.3s ease;
+  transition: border-left-color 0.3s ease,
+  background-color 0.3s ease;
+  color: #657785 !important;
+}
+
+.app-menu__icon {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 25px;
+}
+
+.app-menu li{
+  list-style-type: none;
+}
+
+.app-menu__label {
+  white-space: nowrap;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.treeview.is-expanded [data-toggle='treeview'] {
+  /* border-left-color: #009688; */
+  /* background: #0d1214; */
+  background-color: #d3223a26;
+  border-radius: 14px;
+  /* opacity: 0.1; */
+  color: #D3223A;
+  font-weight: 800;
+}
+
+.treeview.is-expanded .treeview-menu {
+  max-height: 100vh;
+}
+
+.treeview.is-expanded .treeview-indicator {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.treeview-menu {
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: max-height 0.3s ease;
+  -o-transition: max-height 0.3s ease;
+  transition: max-height 0.3s ease;
+  /*background: #2a383e;*/
+}
+
+.treeview-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 5px 5px 5px 20px;
+  font-size: 1em;
+  color: #fff;
+}
+
+.treeview-item.active, .treeview-item:hover, .treeview-item:focus {
+  /*background: #0d1214;*/
+  text-decoration: none;
+  color: #fff;
+}
+
+.treeview-item .icon {
+  margin-right: 5px;
+}
+.treeview-menu li {
+  list-style-type: none;
+}
+
+.treeview-menu li a{
+  margin-bottom: 10px !important;
+  padding-left: 2.3rem;
+}
+
+.treeview-indicator {
+  -webkit-transform-origin: center;
+  -ms-transform-origin: center;
+  transform-origin: center;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
+}
 
 

@@ -34,36 +34,73 @@
       </li>
     </ul>
   </header>
-  <div class="l-navbar show-nav" id="nav-bar">
-    <nav class="nav">
-      <div>
+    <div class="l-navbar show-nav" id="nav-bar">
+      <nav class="nav">
+        <div>
         <a href="#" class="nav_logo">
-          <img src="./assets/images/LogiOpt_logo.png" class="nav_logo_image">
+          <img src="./assets/images/LogiOpt_logo.png" class="nav_logo_image" alt="Logo">
         </a>
-        <div class="nav_list">
-          <a href="#" class="nav_link active" [routerLink]="['planner']">
-            <!--          <img src="./assets/images/Dashboard%20Bold.png">-->
-            <i class="svgMenuIconSize svgDashboardIcon svgMenuActiveIcon"></i>
-            <span class="nav_name">Planner</span>
-          </a>
-          <a href="#" class="nav_link">
-            <!--          <img src="./assets/images/setting.png">-->
-            <i class="svgMenuIconSize svgSettingIcon svgMenuActiveIcon"></i>
-            <span class="nav_name">Configuration</span>
-          </a>
-          <a href="#" class="nav_link">
-            <!--          <img src="./assets/images/profile.png">-->
-            <i class="svgMenuIconSize svgProfileIcon svgMenuActiveIcon"></i>
-            <span class="nav_name">Masters</span>
-          </a>
+        <ul class="app-menu">
+          <li>
+            <a href="#" class="nav_link active" [routerLink]="['planner']">
+              <!--          <img src="./assets/images/Dashboard%20Bold.png">-->
+              <i class="svgMenuIconSize svgDashboardIcon svgMenuActiveIcon"></i>
+              <span class="nav_name">Planner</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav_link">
+              <!--          <img src="./assets/images/setting.png">-->
+              <i class="svgMenuIconSize svgSettingIcon svgMenuActiveIcon"></i>
+              <span class="nav_name">Configuration</span>
+            </a>
+          </li>
+          <li class="treeview">
+            <a class="nav_link" href="#" data-toggle="treeview">
+              <i class="svgMenuIconSize svgProfileIcon svgMenuActiveIcon"></i>
+              <span class="nav_name">Masters</span>
+              <i class="treeview-indicator fa fa-angle-right"></i></a>
+            <ul class="treeview-menu">
+              <li><a class="nav_link" href="#">Parameter</a></li>
+              <li><a class="nav_link" href="#">Vehicle</a></li>
+              <li><a class="nav_link" href="#">Customer</a></li>
+              <li><a class="nav_link" href="#">User</a></li>
+              <li><a class="nav_link" href="#">Product</a></li>
+              <li><a class="nav_link" href="#">City</a></li>
+              <li><a class="nav_link" href="#">State</a></li>
+              <li><a class="nav_link" href="#">Case Type</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="side-nav-footer">
+          <div class="side-nav-footer-head">© Mahindra-Logistics</div>
+          <div class="side-nav-footer-footer"><i>All rights reserved.</i></div>
         </div>
-      </div>
-      <div class="side-nav-footer">
-        <div class="side-nav-footer-head">© Mahindra-Logistics</div>
-        <div class="side-nav-footer-footer"><i>All rights reserved.</i></div>
-      </div>
-    </nav>
-  </div>
+        </div>
+      </nav>
+    </div>
+<!--  <aside class="app-sidebar">-->
+<!--    <ul class="app-menu">-->
+<!--      <li>-->
+<!--        <a class="app-menu__item active" href="#">-->
+<!--          <i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span>-->
+<!--        </a>-->
+<!--      </li>-->
+<!--      <li class="treeview">-->
+<!--        <a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i>-->
+<!--          <span class="app-menu__label">UI Elements</span>-->
+<!--          <i class="treeview-indicator fa fa-angle-right"></i></a>-->
+<!--        <ul class="treeview-menu">-->
+<!--          <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Bootstrap-->
+<!--            Elements</a></li>-->
+<!--          <li><a class="treeview-item" href="#" target="_blank" rel="noopener"><i-->
+<!--            class="icon fa fa-circle-o"></i> Font Icons</a></li>-->
+<!--          <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Cards</a></li>-->
+<!--          <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Widgets</a></li>-->
+<!--        </ul>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--  </aside>-->
 </div>
 
 <div id="containerCus" class="bg-light container-cus container-cus-show">
