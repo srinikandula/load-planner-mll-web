@@ -20,8 +20,37 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit(): void {
     (($) => {
-      // () => {
+      $(document).ready( () => {
+        const treeviewMenu = $('.app-menu');
+        const treeviewMenuChild = $('.app-menu-child');
+// @ts-ignore
+        // Activate sidebar treeview toggle
+        $('[data-toggle=\'treeview\']').click(function(event) {
+          event.preventDefault();
+          // @ts-ignore
+          if (!$(this).parent().hasClass('is-expanded')) {
+            treeviewMenu.find('[data-toggle=\'treeview\']').parent().removeClass('is-expanded');
+          }
+          // @ts-ignore
+          $(this).parent().toggleClass('is-expanded');
+        });
+// @ts-ignore
+        $('[data-toggle=\'treeview-child\']').click(function(event) {
+          event.preventDefault();
+          // @ts-ignore
+          if (!$(this).parent().hasClass('is-expanded')) {
+            treeviewMenuChild.find('[data-toggle=\'treeview-child\']').parent().removeClass('is-expanded');
+          }
+          // @ts-ignore
+          $(this).parent().toggleClass('is-expanded');
+        });
 
+        // Set initial active toggle
+        $('[data-toggle=\'treeview.\'].is-expanded').parent().toggleClass('is-expanded');
+
+        $('[data-toggle=\'treeview-child.\'].is-expanded').parent().toggleClass('is-expanded');
+
+      });
       const showNavbar = (toggleId: any, navId: any, bodyId: any, headerId: any, containerCusId: any) => {
         const toggle = document.getElementById(toggleId),
           nav = document.getElementById(navId),
@@ -31,10 +60,10 @@ export class LayoutComponent implements OnInit {
 
         // Validate that all variables exist
         if(toggle && nav && bodypd && headerpd && containerpd){
-        // if(toggle && nav && headerpd){
+          // if(toggle && nav && headerpd){
           toggle.addEventListener('click', ()=>{
             // show navbar
-            nav.classList.toggle('show')
+            nav.classList.toggle('show-nav')
             // change icon
             // toggle.classList.toggle('bx-x')
             // add padding to body
@@ -77,8 +106,7 @@ export class LayoutComponent implements OnInit {
         // @ts-ignore
         $(this).prev().focus();
       });
-
-    })(jQuery)
+    })(jQuery);
   }
 
   logOutUser(): void {
