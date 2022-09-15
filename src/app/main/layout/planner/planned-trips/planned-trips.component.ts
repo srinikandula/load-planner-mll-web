@@ -5,7 +5,7 @@ import {AuthenticationService} from "../../../../services/authentication.service
 import {FormBuilder} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ModalManager} from "ngb-modal";
-import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ApiServiceService} from "../../../../services/api-service.service";
 
 @Component({
@@ -36,7 +36,6 @@ export class PlannedTripsComponent implements OnInit {
               private router: Router,
               private modelService: ModalManager,
               private ngModalService: NgbModal,
-              public  activeModal: NgbActiveModal,
               private _apiService: ApiServiceService) { }
 
   ngOnInit(): void {

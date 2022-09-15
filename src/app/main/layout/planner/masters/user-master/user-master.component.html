@@ -1,99 +1,96 @@
-<app-header-bar></app-header-bar>
-<div style="margin-top: 24px;margin-bottom: 12px;color: #818182;font-size: 14px;font-weight: 900"
-     xmlns="http://www.w3.org/1999/html">User Master Data</div>
-<div class="order-data-tile" *ngIf="tab == 1">
-  <div class="fixTableHead">
-    <table class="table caption-top table-hover-sticky">
-      <thead>
-      <tr>
-        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">UserName</th>
-        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">FullName</th>
-        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">EmailId</th>
-        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">PhoneNumber</th>
-        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Active</th>
-        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Actions</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let users of pendingUsersList; let i =index;">
-        <td style="padding: 13px 20px;color: #272d3bb8;">{{users.username || 'NA'}}</td>
-        <td style="padding: 13px 20px;color: #272d3bb6;text-transform: capitalize;font-size: 14px">{{users.fullName || 'NA'}}</td>
-        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{users.email || 'NA'}}</td>
-        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{users.mobile || 'NA'}}</td>
-        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{users.consigneeCity || 'NA'}}</td>
-        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{users.consigneeCity || 'NA'}}</td>
-      </tr>
-      </tbody>
-    </table>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2">
+      <small style="font-size: 14px;color: #818182"><b>Load Planner</b></small>
+      <h3 style="letter-spacing: 0px;color: #000000;font-size: 20px"><b>User Master</b></h3>
+    </div>
+    <div class="col-sm-4">
+      <div class="planner-tabs-header">
+        <button class="btn px-4 planner-tabs"  (click)="getUsers('pending')" [ngClass]="{'planner-active-tabs':status==='pending'}">Pending</button>
+        <button class="btn px-4 planner-tabs" (click)="getUsers('active')" [ngClass]="{'planner-active-tabs':status==='active'}">Active</button>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <ul class="body-right">
+        <li>
+          <div class="input-group">
+            <input type="search" aria-describedby="button-addon4" placeholder="Search in table" class="form-control border-0 hide-clear p-0-8rem" style="font-size: 14px">
+            <div class="input-group-prepend">
+              <button id="button-addon4" type="button" class="btn btn-link p-0-8rem text-info" style="background-color: white">
+                <img  src="../../../../assets/images/search-normal.png">
+              </button>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="icon-awesome-image">
+            <img  src="../../../../assets/images/Icon%20awesome-filter.png" class="icon-awesome-filter">
+          </div>
+        </li>
+        <li>
+          <button class="btn btn-sm downTemplate">
+            Add New
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div style="margin-top: 24px;margin-bottom: 12px;color: #818182;font-size: 14px;font-weight: 900"
+           xmlns="http://www.w3.org/1999/html">Uploaded Data</div>
+        <div class="order-data-tile">
+          <div class="fixTableHead">
+            <table class="table caption-top table-hover-sticky">
+              <thead>
+              <tr>
+                <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">UserName</th>
+                <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">FullName</th>
+                <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">EmailId</th>
+                <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">PhoneNumber</th>
+                <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Active</th>
+                <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Actions</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let users of userList; let i =index;">
+                <td style="padding: 13px 20px;color: #272d3bb8;">{{users.username || 'NA'}}</td>
+                <td style="padding: 13px 20px;color: #272d3bb6;text-transform: capitalize;font-size: 14px">{{users.fullName || 'NA'}}</td>
+                <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{users.email || 'NA'}}</td>
+                <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{users.mobile || 'NA'}}</td>
+                <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{users.consigneeCity || 'NA'}}</td>
+                <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">
+                  <button class="action-icon-style edit-client">
+                    <i class="fa fa-pencil fa-1x" style="color: #D6223A"></i>
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6" style="color: #393B3F;font-size: 14px">Showing 1 to 10 of {{usersCount.total}} entries</div>
+          <div class="col-sm-6">
+            <ul style="list-style: none; display: flex; align-items: center; justify-content: flex-end;">
+              <li style="padding: 0px 10px; font-size: 12px"><label>Show</label></li>
+              <li style="padding: 0px 10px;">
+                <select class="form-select" [(ngModel)]="size" [ngModelOptions]="{standalone: true}" (click)="handlePageSizeChange(size)">
+                  <option value="1" selected  *ngFor="let size of pendingData.pageSizes">{{size}}</option>
+                </select>
+              </li>
+              <li style="padding: 0px 0px;font-size: 12px"><label>Rows</label></li>
+              <li style="padding: 0px 10px;">
+                <ngb-pagination class="d-flex justify-content-end pagination-cus" [collectionSize]="usersCount.total" [(page)]="usersCount.page" [maxSize]="3" [pageSize]="usersCount.count" [boundaryLinks]="false" (pageChange)="changeActivePage($event)">
+                  <ng-template ngbPaginationPrevious><i style="color: #A5A5A5" class="fa fa-angle-left fa-2x" *ngIf="usersCount.page != 1"></i></ng-template>
+                  <ng-template ngbPaginationNext><i style="color: #A5A5A5" class="fa fa-angle-right fa-2x"></i></ng-template>
+                </ngb-pagination>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </div>
   </div>
 </div>
 
-<div class="row" *ngIf="tab === 1">
-  <div class="col-sm-6" style="color: #393B3F;font-size: 14px">Showing 1 to 10 of {{pendingUsersTotalCount.pages}} entries</div>
-  <div class="col-sm-6">
-    <ul style="list-style: none; display: flex; align-items: center; justify-content: flex-end;">
-      <li style="padding: 0px 10px; font-size: 12px"><label>Show</label></li>
-      <li style="padding: 0px 10px;">
-        <select class="form-select">
-          <option value="1" selected>10</option>
-        </select>
-      </li>
-      <li style="padding: 0px 0px;font-size: 12px"><label>Rows</label></li>
-      <li style="padding: 0px 10px;">
-        <ngb-pagination class="d-flex justify-content-end pagination-cus" [collectionSize]="pendingUsersTotalCount.pages" [(page)]="pendingUsersTotalCount.page" [maxSize]="3" [pageSize]="pendingUsersTotalCount.count" [boundaryLinks]="false" (pageChange)="changePendingPage($event)">
-          <ng-template ngbPaginationPrevious><i style="color: #A5A5A5" class="fa fa-angle-left fa-2x" *ngIf="pendingUsersTotalCount.page != 1"></i></ng-template>
-          <ng-template ngbPaginationNext><i style="color: #A5A5A5" class="fa fa-angle-right fa-2x"></i></ng-template>
-        </ngb-pagination>
-      </li>
-    </ul>
-  </div>
-</div>
-
-<!--<div class="order-data-tile" *ngIf="tab == 2">-->
-<!--  <div class="fixTableHead">-->
-<!--    <table class="table caption-top table-hover-sticky">-->
-<!--      <thead>-->
-<!--      <tr>-->
-<!--        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">UserName</th>-->
-<!--        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">FullName</th>-->
-<!--        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">EmailId</th>-->
-<!--        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">PhoneNumber</th>-->
-<!--        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Active</th>-->
-<!--        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Actions</th>-->
-<!--      </tr>-->
-<!--      </thead>-->
-<!--      <tbody>-->
-<!--      <tr *ngFor="let users of pendingUsersList; let i =index;">-->
-<!--        <td style="padding: 13px 20px;color: #272d3bb8;">{{users.orderNo || 'NA'}}</td>-->
-<!--        <td style="padding: 13px 20px;color: #272d3bb6;text-transform: capitalize;font-size: 14px">{{users.consignorCity || 'NA'}}</td>-->
-<!--        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{users.consigneeState || 'NA'}}</td>-->
-<!--        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{users.consigneeCity || 'NA'}}</td>-->
-<!--        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{users.consigneeCity || 'NA'}}</td>-->
-<!--        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{users.consigneeCity || 'NA'}}</td>-->
-<!--      </tr>-->
-<!--      </tbody>-->
-<!--    </table>-->
-<!--  </div>-->
-<!--</div>-->
-
-
-<!--<div class="row" *ngIf="tab === 2">-->
-<!--  <div class="col-sm-6" style="color: #393B3F;font-size: 14px">Showing 1 to 10 of {{activeUsersTotalCount.pages}} entries</div>-->
-<!--  <div class="col-sm-6">-->
-<!--    <ul style="list-style: none; display: flex; align-items: center; justify-content: flex-end;">-->
-<!--      <li style="padding: 0px 10px; font-size: 12px"><label>Show</label></li>-->
-<!--      <li style="padding: 0px 10px;">-->
-<!--        <select class="form-select">-->
-<!--          <option value="1" selected>10</option>-->
-<!--        </select>-->
-<!--      </li>-->
-<!--      <li style="padding: 0px 0px;font-size: 12px"><label>Rows</label></li>-->
-<!--      <li style="padding: 0px 10px;">-->
-<!--        <ngb-pagination class="d-flex justify-content-end pagination-cus" [collectionSize]="activeUsersTotalCount.pages" [(page)]="activeUsersTotalCount.page" [maxSize]="3" [pageSize]="activeUsersTotalCount.count" [boundaryLinks]="false" (pageChange)="changeActivePage($event)">-->
-<!--          <ng-template ngbPaginationPrevious><i style="color: #A5A5A5" class="fa fa-angle-left fa-2x" *ngIf="activeUsersTotalCount.page != 1"></i></ng-template>-->
-<!--          <ng-template ngbPaginationNext><i style="color: #A5A5A5" class="fa fa-angle-right fa-2x"></i></ng-template>-->
-<!--        </ngb-pagination>-->
-<!--      </li>-->
-<!--    </ul>-->
-<!--  </div>-->
-<!--</div>-->

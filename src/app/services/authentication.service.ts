@@ -29,7 +29,7 @@ export class AuthenticationService {
 
 
   logIn(username: string, password: string): any{
-    return this._httpClient.post<any>(this._apiUrls.mainUrl+ 'api/v1/users/login', {username, password}).pipe(map(res=> {
+    return this._httpClient.post<any>(this._apiUrls.mainUrl+ 'api/v1/auth/login', {username, password}).pipe(map(res=> {
       if (res){
         localStorage.setItem('currentUser', JSON.stringify(res));
         this.currentUserSubject.next(res);

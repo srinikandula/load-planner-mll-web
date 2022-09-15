@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
 
-  public error: any;
+  public error: any = {};
   constructor(private _httpClient: HttpClient, public _apiUrls: ApiUrls, private _authenticationService: AuthenticationService, private fb: FormBuilder,private route: ActivatedRoute,
               private router: Router,) {
     if (this._authenticationService.currentUserValue) {
@@ -66,12 +66,8 @@ export class LoginComponent implements OnInit {
         }
       });
       this.router.navigate([this.returnUrl]);
-      // if (data.success === true){
-      //   this.router.navigate([this.returnUrl]);
-      //   Toast.fire({icon: 'success', title: 'Login in successfully'});
-      // } else {
-      //   this.error = data.message;
-      // }
+    }, (error: any) => {
+      this.error = error;
     });
   }
 

@@ -27,6 +27,7 @@ export class UploadFileComponent implements OnInit {
   filesSet: FileHandle[] = [];
   public fileName: any;
   percentDone: any = "";
+  public UploadFileTrue: boolean;
   constructor(private _httpClient: HttpClient,
               public _apiUrls: ApiUrls,
               private _authenticationService: AuthenticationService,
@@ -40,7 +41,8 @@ export class UploadFileComponent implements OnInit {
   }
 
   uploadFile(xlsxFile: any): void {
-    this.file = ''
+    this.file = '';
+    this.fileName= '';
     this.progress = 1;
     if (xlsxFile[0].url) {
       this.file = xlsxFile[0].file;
@@ -139,7 +141,9 @@ export class UploadFileComponent implements OnInit {
           console.log('d', event);
           if (res){
             this.file = '';
+            this.UploadFileTrue = true;
           }
+          Swal.fire('success', 'CSV File upload successfully..!', 'success');
           // if (event){
           //   if (event.type == HttpEventType.UploadProgress) {
           //     console.log('ee', event);
@@ -179,4 +183,8 @@ export class UploadFileComponent implements OnInit {
   }
 
 
+  cancel(): void {
+    this.file = '';
+    this.fileName = '';
+  }
 }

@@ -23,7 +23,7 @@ export class ApiServiceService {
   }
 
   downloadTemplateFile(): Observable<any> {
-    return this._httpClient.get('http://localhost:3000/api/v1/orders/template');
+    return this._httpClient.get('http://localhost:3000/api/v1/orders/orderTemplate');
   }
 
 

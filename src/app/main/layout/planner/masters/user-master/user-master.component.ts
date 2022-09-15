@@ -8,6 +8,7 @@ import {ModalManager} from "ngb-modal";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {DatePipe} from "@angular/common";
 import {ApiServiceService} from "../../../../../services/api-service.service";
+import {OnlynumberDirective} from "../../../../../directives/onlynumber.directive";
 
 @Component({
   selector: 'app-user-master',
@@ -16,21 +17,21 @@ import {ApiServiceService} from "../../../../../services/api-service.service";
 })
 export class UserMasterComponent implements OnInit {
   @Input() tab: any;
-  public usersList: Array<any> = [];
-  public activeUsersList: Array<any> = [];
-  public pendingUsersList: Array<any> = [];
+  public userList: Array<any> = [];
   public totalCount: any;
-  public activeUsersTotalCount: any;
-  public pendingUsersTotalCount: any;
+  public usersCount: any= {};
   public pendingData: any = {
     page: 1,
     count: 10,
+    pageSizes: []
   };
 
   public activeData: any = {
     page: 1,
     count: 10,
   };
+  public status: string;
+  public size: any;
   constructor(private _httpClient: HttpClient,
               public _apiUrls: ApiUrls,
               private _authenticationService: AuthenticationService,
@@ -43,41 +44,36 @@ export class UserMasterComponent implements OnInit {
               private _apiService: ApiServiceService) { }
 
   ngOnInit(): void {
-    console.log('tab', this.tab);
-    this.tab =1;
-    // this.pendingUsers();
-    if (this.tab === 1){
-      this.pendingUsers();
-    } else if (this.tab === 2){
-      // this.activeUsers();
+    this.status = 'pending';
+    if (this.status ==='pending'){
+      this.getUsers(this.status);
     }
   }
 
-  activeUsers(): void{
-    this._apiService.getAll(this._apiUrls.activateUsers, this.activeData).subscribe((res: any) => {
-      if (res){
-        this.activeUsersList = res.data;
-        this.activeUsersTotalCount = res;
-      }
-    });
-  }
-
-  pendingUsers(): void{
-    this._apiService.getAll(this._apiUrls.pendingUsers, this.pendingData).subscribe((res: any) => {
-      if (res){
-        this.pendingUsersList = res.data;
-        this.pendingUsersTotalCount = res;
-      }
-    });
-  }
-
-  changePendingPage($event: number) {
-    this.pendingData.page = $event;
-    this.pendingUsers();
-  }
-
   changeActivePage($event: number) {
-    this.activeData.page = $event;
-    this.activeUsers();
+    this.pendingData.page = $event;
+  }
+
+  getUsers(status: string) {
+    this.status = status;
+    if (status === 'pending') {
+      var apiUrl = this._apiUrls.pendingUsers;
+    }else{
+      var apiUrl = this._apiUrls.activateUsers;
+    }
+    this._apiService.getAll(apiUrl, this.pendingData).subscribe((res: any) => {
+      if (res){
+        this.userList = res.data;
+        this.usersCount = res;
+        OnlynumberDirective.pagination(res.total, this.pendingData);
+      }
+    });
+
+  }
+
+  handlePageSizeChange(size: any) {
+    this.pendingData.count = size;
+    console.log('ty', this.pendingData.count, size);
+    this.pendingData.page = 1;
   }
 }

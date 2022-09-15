@@ -61,8 +61,10 @@
     <ul style="list-style: none; display: flex; align-items: center; justify-content: flex-end;">
       <li style="padding: 0px 10px; font-size: 12px"><label>Show</label></li>
       <li style="padding: 0px 10px;">
-        <select class="form-select">
-          <option value="1" selected>10</option>
+        <select class="form-select" [(ngModel)]="size" (click)="handlePageSizeChange(size)"
+                [ngModelOptions]="{standalone: true}">
+          <option selected>{{size}}</option>
+          <option value="{{size}}"  *ngFor="let size of orderData.pageSizes">{{size}}</option>
         </select>
       </li>
       <li style="padding: 0px 0px;font-size: 12px"><label>Rows</label></li>

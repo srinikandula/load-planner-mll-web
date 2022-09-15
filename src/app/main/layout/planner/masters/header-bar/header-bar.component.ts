@@ -18,20 +18,20 @@ export class HeaderBarComponent implements OnInit {
     this.tab = tabKey ? tabKey : 1;
     switch (tabKey) {
       case 1:
-        if (status === 'pending'){
-          this.status = status;
+        // if (status === 'pending'){
+        //   this.status = status;
+        //
+        // } else {
           this.UserComponent = true;
-        } else {
-          this.UserComponent = false;
-        }
+        // }
         break;
       case 2:
-        if (status === 'active'){
-          this.status = status;
+        // if (status === 'active'){
+        //   this.status = status;
+        //   this.UserComponent = true;
+        // } else {
           this.UserComponent = true;
-        } else {
-          this.UserComponent = false;
-        }
+        // }
         break;
     }
   }
