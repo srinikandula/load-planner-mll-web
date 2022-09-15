@@ -12,8 +12,8 @@ export class ApiUrls {
 
 
 
-  userRegistration = 'api/v1/users/register';
-  downloadTemplate = 'api/v1/orders/template';
+  userRegistration = 'api/v1/auth/register';
+  downloadTemplate = 'api/v1/orders/orderTemplate';
   uploadCsv = 'api/v1/orders/uploadCsv';
   uploadCsvLoad = 'api/v1/orders/uploadCsvLoad';
   getAllOrders = 'api/v1/orders/getAllOrders';

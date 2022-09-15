@@ -8,6 +8,7 @@ import {ApiServiceService} from "../../../../services/api-service.service";
 import {ModalDismissReasons, NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ModalManager} from "ngb-modal";
 import {DatePipe} from "@angular/common";
+import {OnlynumberDirective} from "../../../../directives/onlynumber.directive";
 
 @Component({
   selector: 'app-order-data',
@@ -17,9 +18,10 @@ import {DatePipe} from "@angular/common";
 export class OrderDataComponent implements OnInit {
   @Input() tab: any;
   public allOrdersList: Array<any> = [];
-  public orderData: any = {
+  public   orderData: any = {
     page: 1,
     count: 10,
+    pageSizes: [],
     date: new Date(),
   };
   public totalCount: any= {
@@ -47,6 +49,7 @@ export class OrderDataComponent implements OnInit {
   public unSelectAll: boolean;
   public unSelectData: boolean;
   public modalRef: any;
+  public size = 10;
   constructor(private _httpClient: HttpClient,
               public _apiUrls: ApiUrls,
               private _authenticationService: AuthenticationService,
@@ -70,6 +73,7 @@ export class OrderDataComponent implements OnInit {
       if (res){
         this.allOrdersList = res.data;
         this.totalCount = res;
+        OnlynumberDirective.pagination(res.total, this.orderData);
       }
     });
   }
@@ -138,15 +142,6 @@ export class OrderDataComponent implements OnInit {
 
   runPlanner(myModal: any): void {
     this.orderIds = this.updated.orderIds;
-    // this.modalRef =  this.modelService.open(this.myModal, {size: 'sm', keyboard: false,
-    //   hideCloseButton: false,
-    //   centered: false,
-    //   backdrop: false,
-    //   animation: true,
-    //   show:false,
-    //   fade: false,
-    //   closeOnOutsideClick: true,
-    //   backdropClass:false});
     this.ngModalService.open(myModal, {windowClass: 'rightModel', keyboard: false, animation: true, backdrop: "static"});
   }
 
@@ -162,7 +157,10 @@ export class OrderDataComponent implements OnInit {
     })
   }
 
-  date() {
-
+  handlePageSizeChange(event: any) {
+    this.orderData.count = parseInt(event);
+    console.log('ty', this.orderData.count, event);
+    this.orderData.page = 1;
+    this.getAllOrders();
   }
 }

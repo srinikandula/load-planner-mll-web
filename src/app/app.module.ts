@@ -23,6 +23,7 @@ import { DragDropDirective } from './directives/drag-drop.directive';
 import {NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
 import {ModalModule} from "ngb-modal";
 import {BsDatepickerModule, DatepickerModule} from "ngx-bootstrap/datepicker";
+import { OnlynumberDirective } from './directives/onlynumber.directive';
 
 
 
@@ -32,6 +33,7 @@ import {BsDatepickerModule, DatepickerModule} from "ngx-bootstrap/datepicker";
     SignupComponent,
     LoginComponent,
     CorosVideoComponent,
+    OnlynumberDirective,
     // DefaultLayoutComponent,
     // BackendLayoutComponent,
   ],
