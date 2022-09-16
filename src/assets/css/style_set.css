@@ -912,3 +912,26 @@ table {
   box-shadow: inset 0 2px 2px 0 rgba(0, 0, 0, 0.14), inset 0 1px 5px 0 rgba(0, 0, 0, 0.12), inset 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 
+.action-icon-style{
+  border: none;
+  background-color: white;
+  color: #D6223A;
+}
+
+.form-switch .form-check-input:checked{
+ border-radius: 2rem;
+}
+
+table tr th{
+  padding: 17px 51px 17px 51px !important;
+  color: #272D3B;
+  text-transform: capitalize;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+table tr td{
+  padding: 15px 51px 0px 51px !important;
+  color: #272D3B;
+  font-size: 14px;
+}
