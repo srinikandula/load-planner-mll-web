@@ -75,14 +75,14 @@
             </table>
           </div>
         </div>
-        <div class="row">
+        <div class="row" *ngIf="usersCount.total">
           <div class="col-sm-6" style="color: #393B3F;font-size: 14px">Showing 1 to 10 of {{usersCount.total}} entries</div>
           <div class="col-sm-6">
             <ul style="list-style: none; display: flex; align-items: center; justify-content: flex-end;">
               <li style="padding: 0px 10px; font-size: 12px"><label>Show</label></li>
               <li style="padding: 0px 10px;">
                 <select class="form-select" [(ngModel)]="size" [ngModelOptions]="{standalone: true}" (click)="handlePageSizeChange(size)">
-                  <option value="1" selected  *ngFor="let size of pendingData.pageSizes">{{size}}</option>
+                  <option value="{{size}}" selected  *ngFor="let size of pendingData.pageSizes">{{size}}</option>
                 </select>
               </li>
               <li style="padding: 0px 0px;font-size: 12px"><label>Rows</label></li>
