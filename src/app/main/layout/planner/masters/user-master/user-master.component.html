@@ -7,8 +7,8 @@
     </div>
     <div class="col-sm-4">
       <div class="planner-tabs-header">
-        <button class="btn px-4 planner-tabs"  (click)="getUsers('pending')" [ngClass]="{'planner-active-tabs':status==='pending'}">Pending</button>
         <button class="btn px-4 planner-tabs" (click)="getUsers('active')" [ngClass]="{'planner-active-tabs':status==='active'}">Active</button>
+        <button class="btn px-4 planner-tabs"  (click)="getUsers('pending')" [ngClass]="{'planner-active-tabs':status==='pending'}">Pending</button>
       </div>
     </div>
     <div class="col-sm-6">
@@ -45,24 +45,29 @@
             <table class="table caption-top table-hover-sticky">
               <thead>
               <tr>
-                <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">UserName</th>
-                <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">FullName</th>
-                <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">EmailId</th>
-                <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">PhoneNumber</th>
-                <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Active</th>
-                <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Actions</th>
+                <th scope="col">UserName</th>
+                <th scope="col">FullName</th>
+                <th scope="col">EmailId</th>
+                <th scope="col">PhoneNumber</th>
+                <th scope="col">Active</th>
+                <th scope="col">Actions</th>
               </tr>
               </thead>
               <tbody>
               <tr *ngFor="let users of userList; let i =index;">
-                <td style="padding: 13px 20px;color: #272d3bb8;">{{users.username || 'NA'}}</td>
-                <td style="padding: 13px 20px;color: #272d3bb6;text-transform: capitalize;font-size: 14px">{{users.fullName || 'NA'}}</td>
-                <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{users.email || 'NA'}}</td>
-                <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{users.mobile || 'NA'}}</td>
-                <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{users.consigneeCity || 'NA'}}</td>
+                <td>{{users.username || 'NA'}}</td>
+                <td>{{users.fullName || 'NA'}}</td>
+                <td>{{users.email || 'NA'}}</td>
+                <td>{{users.mobile || 'NA'}}</td>
+                <td>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" checked type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+                    <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+                  </div>
+                </td>
                 <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">
                   <button class="action-icon-style edit-client">
-                    <i class="fa fa-pencil fa-1x" style="color: #D6223A"></i>
+                    <i class="fa fa-pencil fa-1x" style="text-decoration: underline;"></i>
                   </button>
                 </td>
               </tr>
@@ -70,14 +75,14 @@
             </table>
           </div>
         </div>
-        <div class="row">
+        <div class="row" *ngIf="usersCount.total">
           <div class="col-sm-6" style="color: #393B3F;font-size: 14px">Showing 1 to 10 of {{usersCount.total}} entries</div>
           <div class="col-sm-6">
             <ul style="list-style: none; display: flex; align-items: center; justify-content: flex-end;">
               <li style="padding: 0px 10px; font-size: 12px"><label>Show</label></li>
               <li style="padding: 0px 10px;">
                 <select class="form-select" [(ngModel)]="size" [ngModelOptions]="{standalone: true}" (click)="handlePageSizeChange(size)">
-                  <option value="1" selected  *ngFor="let size of pendingData.pageSizes">{{size}}</option>
+                  <option value="{{size}}" selected  *ngFor="let size of pendingData.pageSizes">{{size}}</option>
                 </select>
               </li>
               <li style="padding: 0px 0px;font-size: 12px"><label>Rows</label></li>

@@ -34,7 +34,7 @@ export class OrderDataComponent implements OnInit {
     orderIds: this.orderIdsSet,
     vehicleType: '12',
     tripDate: '',
-    tripTime: '',
+    tripTime: 'hh, mm',
   };
 
   // public truckListData: any []
@@ -50,6 +50,9 @@ export class OrderDataComponent implements OnInit {
   public unSelectData: boolean;
   public modalRef: any;
   public size = 10;
+  public checkedCount: number;
+  public checkedOrders: any = [];
+  public meridian = true;
   constructor(private _httpClient: HttpClient,
               public _apiUrls: ApiUrls,
               private _authenticationService: AuthenticationService,
@@ -60,7 +63,7 @@ export class OrderDataComponent implements OnInit {
               private ngModalService: NgbModal,
               private datePipe: DatePipe,
               private _apiService: ApiServiceService) {
-    this.updated.tripTime =this.datePipe.transform((new Date), 'h:mm:');
+    this.updated.tripTime =this.datePipe.transform((new Date), 'hh:mm a');
 
   }
 
@@ -84,6 +87,7 @@ export class OrderDataComponent implements OnInit {
   }
 
   toggleAll(select: string): void {
+    this.checkedCount = 0;
     this.updated.orderIds = [];
     if (select === 'selectAll') {
       this.unSelectAll = true;
@@ -92,6 +96,10 @@ export class OrderDataComponent implements OnInit {
         this.allOrdersList.map((data) => {
           data.checked = true;
           this.updated.orderIds.push(data._id);
+          if (data['checked']){
+            this.checkedCount = this.checkedCount + 1;
+            this.checkedOrders.push(data.orderNo);
+          }
         });
       } else {
         this.allOrdersList.map((data) => {
@@ -111,6 +119,12 @@ export class OrderDataComponent implements OnInit {
         data.checked = true;
         this.updated.orderIds.push(data._id);
         this.unSelectData = false;
+        console.log('s', data);
+        if (data['checked']){
+          this.checkedCount = this.checkedCount + 1;
+          this.checkedOrders.push(data.orderNo);
+          console.log('ui', this.checkedOrders);
+        }
       });
     } else {
       this.allOrdersList.map((data) => {
@@ -124,6 +138,16 @@ export class OrderDataComponent implements OnInit {
 
   toggleDeviceIds(status:any, orders: any) {
     this.checkedData = status;
+    console.log('d', this.checkedData);
+    this.checkedCount = 0;
+
+    this.allOrdersList.forEach((item:any) => {
+      if (item['checked']){
+        this.checkedCount = this.checkedCount + 1;
+        this.checkedOrders.push(item.orderNo);
+      }
+    })
+
     this.unSelectData = false;
     if (this.allOrdersList.every(a => a.checked)) {
       this.updated.orderIds.push(orders._id);

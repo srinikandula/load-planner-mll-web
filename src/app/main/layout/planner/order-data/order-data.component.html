@@ -5,25 +5,25 @@
     <table class="table caption-top table-hover-sticky">
       <thead>
       <tr>
-        <th scope="col" style="padding: 40px 20px 13px 20px">
+        <th scope="col">
           <div class="round">
             <input type="checkbox" name="fieldName" id="checkbox" [(ngModel)]="selectAll" (ngModelChange)="toggleAll('')">
             <label for="checkbox" title="Select All"></label>
           </div>
         </th>
-        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">consignment Number</th>
-        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">consigner City</th>
-        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Consigner State</th>
-        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Consignee City</th>
-        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Consignee State</th>
-        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">volume CF</th>
-        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Weight</th>
-        <th scope="col" style="padding: 40px 20px 20px 20px;color: #272D3B;text-transform: capitalize;font-size: 14px">Order Date</th>
+        <th scope="col">consignment Number</th>
+        <th scope="col">consigner City</th>
+        <th scope="col">Consigner State</th>
+        <th scope="col">Consignee City</th>
+        <th scope="col">Consignee State</th>
+        <th scope="col">volume CF</th>
+        <th scope="col">Weight</th>
+        <th scope="col">Order Date</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let orders of allOrdersList; let i =index;">
-        <td style="padding: 13px 20px;color: #272d3bb8;">
+        <td>
           <div class="round">
             <input type="checkbox" name="fieldName" id="chk-{{orders._id}}"
                    [(ngModel)]="orders.checked" [value]="orders._id"
@@ -31,24 +31,25 @@
             <label for="chk-{{orders._id}}" title="Select"></label>
           </div>
         </td>
-        <td style="padding: 13px 20px;color: #272d3bb8;">{{orders.orderNo || 'NA'}}</td>
-        <td style="padding: 13px 20px;color: #272d3bb6;text-transform: capitalize;font-size: 14px">{{orders.consignorCity || 'NA'}}</td>
-        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{orders.consigneeState || 'NA'}}</td>
-        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{orders.consigneeCity || 'NA'}}</td>
-        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{orders.consigneeState || 'NA'}}</td>
-        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{orders.volumeCft || 'NA'}}</td>
-        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{orders.weight || 'NA'}}</td>
-        <td style="padding: 13px 20px;color: #272d3be6;text-transform: capitalize;font-size: 14px">{{orders.createdAt}}</td>
+        <td>{{orders.orderNo || 'NA'}}</td>
+        <td>{{orders.consignorCity || 'NA'}}</td>
+        <td>{{orders.consigneeState || 'NA'}}</td>
+        <td>{{orders.consigneeCity || 'NA'}}</td>
+        <td>{{orders.consigneeState || 'NA'}}</td>
+        <td>{{orders.volumeCft || 'NA'}}</td>
+        <td>{{orders.weight || 'NA'}}</td>
+        <td>{{orders.createdAt}}</td>
       </tr>
       </tbody>
     </table>
   </div>
-      <div class="row" [hidden]="unSelectData === true" *ngIf="selectAll === true || checkedData === true" style="background-color: #D6223A;margin: 0px 7px;padding: 12px 0px 12px 26px;box-shadow: 0px 4px 8px #FF070748;border-radius: 0px 0px 4px 4px;">
+      <div class="row" [hidden]="unSelectData === true" *ngIf="selectAll === true || updated.orderIds.length >= 1" style="background-color: #D6223A;margin: 0px 7px;padding: 12px 0px 12px 26px;box-shadow: 0px 4px 8px #FF070748;border-radius: 0px 0px 4px 4px;">
         <div style="display: flex;align-items: center;justify-content: space-between;">
-          <div><span style="color:#FFFFFF;font-weight: bold;font-size: 26px">Run Planner</span> <span style="font-size: 18px;color:#FFFFFF;">(3 order : 10872313, 10872313)</span></div>
+          <div><span style="color:#FFFFFF;font-weight: bold;font-size: 26px">Run Planner</span> <span style="font-size: 18px;color:#FFFFFF;">({{checkedCount}} order:
+            <span *ngFor="let rt of this.checkedOrders | slice:0:3" [hidden]="this.checkedOrders.length > 3">{{rt}},</span> )</span></div>
           <div>
-            <button class="btn" style="color: #FFFFFF;font-size: 14px;padding: 13px 23px;" [hidden]="unSelectAll === true" (click)="toggleAll('selectAll')">Select All</button>&nbsp;&nbsp;&nbsp;
-            <button class="btn" style="color: #FFFFFF;font-size: 14px;padding: 13px 23px;" *ngIf="unSelectAll === true" (click)="toggleAll('unSelectAll')">UnSelect All</button>&nbsp;&nbsp;&nbsp;
+            <button class="btn" style="color: #FFFFFF;font-size: 14px;padding: 13px 23px;" [hidden]="unSelectAll === true || selectAll === true" (click)="toggleAll('selectAll')">Select All</button>&nbsp;&nbsp;&nbsp;
+            <button class="btn" style="color: #FFFFFF;font-size: 14px;padding: 13px 23px;" *ngIf="unSelectAll === true || selectAll === true" (click)="toggleAll('unSelectAll')">UnSelect All</button>&nbsp;&nbsp;&nbsp;
             <button class="btn" style="border-radius: 4px;background-color: #FFFFFF; color: #D6223A;text-transform: capitalize;font-weight: 600;padding: 13px 23px;"  (click)="runPlanner(myModal)">Run Planner</button>
           </div>
         </div>
@@ -148,10 +149,10 @@
                       [attr.aria-expanded]="dp2.isOpen">
                 TIME
               </button>
-              {{updated.tripTimegngn}}
+             {{updated.tripTime | json}}
             </div>
             <ng-template #popTemplate>
-              <timepicker [(ngModel)]="updated.tripTime" ></timepicker>
+              <ngb-timepicker [(ngModel)]="updated.tripTime"  [meridian]="meridian" ></ngb-timepicker>
             </ng-template>
             <input class="form-control text-center border-0" style="background-color: #f3f3f4;" [(ngModel)]="updated.tripTime" [popover]="popTemplate" />
           </div>

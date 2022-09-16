@@ -44,8 +44,8 @@ export class UserMasterComponent implements OnInit {
               private _apiService: ApiServiceService) { }
 
   ngOnInit(): void {
-    this.status = 'pending';
-    if (this.status ==='pending'){
+    this.status = 'active';
+    if (this.status ==='active'){
       this.getUsers(this.status);
     }
   }
@@ -56,6 +56,8 @@ export class UserMasterComponent implements OnInit {
 
   getUsers(status: string) {
     this.status = status;
+    this.userList  = [];
+    this.usersCount = {}
     if (status === 'pending') {
       var apiUrl = this._apiUrls.pendingUsers;
     }else{
@@ -72,8 +74,9 @@ export class UserMasterComponent implements OnInit {
   }
 
   handlePageSizeChange(size: any) {
-    this.pendingData.count = size;
+    this.pendingData.count = parseInt(size);
     console.log('ty', this.pendingData.count, size);
     this.pendingData.page = 1;
+    this.getUsers(this.status);
   }
 }
